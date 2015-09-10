@@ -6,6 +6,8 @@
 
 #include "tesi.h"
 #include <gdk/gdkkeysyms.h>
+/*
+ * heavily modified from https://github.com/alanszlosek/tesi/
  * for use in Shoes/Linux
 */
 
@@ -262,8 +264,7 @@ void shoes_native_app_console () {  //int main(int argc, char *argv[]) {
 	gtk_container_add (GTK_CONTAINER (sw), canvas);
 	gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW(canvas), TRUE);
 	gtk_text_view_set_left_margin(GTK_TEXT_VIEW(canvas), 4);
-	gtk_text_view_set_right_margin(canvas, 4);	
-	gtk_text_view_set_wrap_mode(canvas, GTK_WRAP_CHAR);
+	gtk_text_view_set_right_margin(GTK_TEXT_VIEW(canvas), 4);
 	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(canvas), GTK_WRAP_CHAR);
 
   	// set font for scrollable window
