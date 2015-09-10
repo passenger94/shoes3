@@ -382,18 +382,35 @@
     [self setBezelStyle: NSRegularSquareBezelStyle];
     [self setDelegate: (id<NSTextFieldDelegate>)self];
   }
+  //printf("Create %u\n",self);
   return self;
 }
--(void)textDidChange: (NSNotification *)n
+-(void)textDidChange: (NSNotification *)note
 {
+  //printf("didChange %u\n", self);
   shoes_control_send(object, s_change);
 }
 
-// cjc Shoes4 bug860
-//-(void)textDidEndEditing: (NSNotification *)n
-//{
-//	shoes_control_send(object, s_donekey);
-//}
+//  Shoes4 bug860, shoes3.2 bug008
+/*
+  Pay attention for the delicate deleate dance need to implement textShouldEndEditing
+  if we implement textDidEndEditing. 'should' is called before 'end'
+*/
+-(void)textDidEndEditing: (NSNotification *)note
+{
+    //printf("didEndEditing %u\n", self);
+	  shoes_control_send(object, s_donekey);
+}
+
+// fixes bug that disappeared entered text
+- (BOOL)textShouldEndEditing:(NSText *)textObject
+{
+  NSString *tmp = [textObject string];
+  //printf("shouldEndEditing %u %s\n", self, [tmp UTF8String]);
+  // need to save the contents
+  [self setStringValue: tmp]; // yes, it seems silly but it works.
+  return YES;
+}
 @end
 
 @implementation ShoesSecureTextField
@@ -456,6 +473,51 @@
   shoes_control_send(object, s_change);
 }
 @end
+
+// new for 3.2.25
+@implementation ShoesTextEditView
+- (id)initWithFrame: (NSRect)frame andObject: (VALUE)o
+{
+  printf( "cocoa: creating text_edit_view_frame\n");
+  if ((self = [super initWithFrame: frame]))
+  {
+    printf("cocoa: creating text_edit_frame\n");
+    object = o;
+    textView = [[NSTextView alloc] initWithFrame:
+      NSMakeRect(0, 0, frame.size.width, frame.size.height)];
+    [textView setVerticallyResizable: YES];
+    [textView setHorizontallyResizable: YES];
+
+    [self setBorderType: NSBezelBorder];
+    [self setHasVerticalScroller: YES];
+    [self setHasHorizontalScroller: NO];
+    [self setDocumentView: textView];
+    [textView setDelegate: (id<NSTextViewDelegate>)self];
+  }
+  return self;
+}
+
+-(void)setEnabled: (BOOL)enableIt
+{
+	//printf("setState called %d\n", enableIt);
+  [textView setSelectable: enableIt];
+  [textView setEditable: enableIt];
+  if (enableIt)
+    [textView setTextColor: [NSColor controlTextColor]];
+  else
+    [textView setTextColor: [NSColor disabledControlTextColor]];
+}
+
+-(NSTextStorage *)textStorage
+{
+  return [textView textStorage];
+}
+-(void)textDidChange: (NSNotification *)n
+{
+  shoes_control_send(object, s_change);
+}
+@end
+
 
 @implementation ShoesPopUpButton
 - (id)initWithFrame: (NSRect)frame andObject: (VALUE)o
@@ -943,7 +1005,15 @@ shoes_native_app_window(shoes_app *app, int dialog)
   unsigned int mask = NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask;
   NSRect rect = NSMakeRect(0, 0, app->width, app->height);
   NSSize size = {app->minwidth, app->minheight};
-
+  // 3.2.24 constrain to screen size-docsize-menubar (visibleFrame)
+  // Then minus the window's title bar
+  NSRect screen = [[NSScreen mainScreen] visibleFrame]; //should be a global var?
+  if (app->height > screen.size.height) {
+    app->height = screen.size.height;
+    rect.size.height = screen.size.height;
+    app->height = app->height - 20;
+    rect.size.height = rect.size.height - 20;
+  }
   if (app->resizable)
     mask |= NSResizableWindowMask;
   if (app->fullscreen) {
@@ -1320,6 +1390,37 @@ shoes_native_edit_box_set_text(SHOES_CONTROL_REF ref, char *msg)
   COCOA_DO([[[(ShoesTextView *)ref textStorage] mutableString] setString: [NSString stringWithUTF8String: msg]]);
 }
 
+// text_edit_box is new in 3.2.25
+SHOES_CONTROL_REF
+shoes_native_text_edit_box(VALUE self, shoes_canvas *canvas, shoes_place *place, VALUE attr, char *msg)
+{
+  INIT;
+  ShoesTextEditView *tv = [[ShoesTextEditView alloc] initWithFrame:
+    NSMakeRect(place->ix + place->dx, place->iy + place->dy,
+    place->ix + place->dx + place->iw, place->iy + place->dy + place->ih)
+    andObject: self];
+  shoes_native_text_edit_box_set_text((NSControl *)tv, msg);
+  RELEASE;
+  return (NSControl *)tv;
+}
+
+VALUE
+shoes_native_text_edit_box_get_text(SHOES_CONTROL_REF ref)
+{
+  VALUE text = Qnil;
+  INIT;
+  text = rb_str_new2([[[(ShoesTextView *)ref textStorage] string] UTF8String]);
+  RELEASE;
+  return text;
+}
+
+void
+shoes_native_text_edit_box_set_text(SHOES_CONTROL_REF ref, char *msg)
+{
+  COCOA_DO([[[(ShoesTextEditView *)ref textStorage] mutableString] setString: [NSString stringWithUTF8String: msg]]);
+}
+
+//
 SHOES_CONTROL_REF
 shoes_native_list_box(VALUE self, shoes_canvas *canvas, shoes_place *place, VALUE attr, char *msg)
 {

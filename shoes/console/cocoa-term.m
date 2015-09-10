@@ -19,10 +19,11 @@ void console_haveChar(void *p, char c); // forward ref
   cwin = cw;
   tobj = cw->tobj;  // is this Obj-C ugly? Probably
   font = fixedfont;
-  attrs = [NSMutableDictionary dictionary];
-  [attrs setObject:font forKey:NSFontAttributeName];
-
+  //attrs = [NSMutableDictionary dictionary];
+  //[attrs setObject:font forKey:NSFontAttributeName];
+  attrs = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
   [self setEditable: YES];
+  [self setRichText: false];
   [[self textStorage] setFont: font]; // doesn't work
   [self setFont: font]; //doesn't work
   [self setTypingAttributes: attrs]; // doesn't hang so thats good. doesn't work either
@@ -30,10 +31,25 @@ void console_haveChar(void *p, char c); // forward ref
 }
 - (void)keyDown: (NSEvent *)e
 {
-  // should send events to super (page_up key or cmd-key
+  // works but I do not like it.
   NSString *str = [e charactersIgnoringModifiers];
   char *utf8 = [str UTF8String];
-  write(tobj->fd_input, utf8, strlen(utf8));
+  if (strlen(utf8)==1) {
+    if (utf8[0] == '0x09') {
+      write(tobj->fd_input,"TAB",3);  //never called
+    }
+    write(tobj->fd_input, utf8, strlen(utf8));
+  } else {
+    // this sends the key event (back?) to the responder chain
+    [self interpretKeyEvents:[NSArray arrayWithObject:e]];
+  }
+}
+
+// not called?
+- (void)insertTab:(id)sender {
+   if ([[self window] firstResponder] == self) {
+     write(tobj->fd_input,"TAB",3);
+   }
 }
 
 - (void)writeChr:(char)c
@@ -43,9 +59,9 @@ void console_haveChar(void *p, char c); // forward ref
   buff[1] = 0;
   NSString *cnvbfr = [[NSString alloc] initWithCString: buff encoding: NSUTF8StringEncoding];
   //Create a AttributeString using the font.
-  NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString: cnvbfr attributes: attrs]; //hangs Fix ME
+  NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString: cnvbfr attributes: attrs];
   //[[self textStorage] appendAttributedString: [[NSMutableAttributedString alloc] initWithString: cnvbfr attributes: attrs]];
-  [[self textStorage] appendAttributedString: [[NSMutableAttributedString alloc] initWithString: cnvbfr ]];
+  [[self textStorage] appendAttributedString: attrStr];
   [self scrollRangeToVisible:NSMakeRange([[self string] length], 0)];
 
   // TODO: Am I leaking memory ? The C programmer in me says "Oh hell yes!"
@@ -61,26 +77,20 @@ void console_haveChar(void *p, char c); // forward ref
   //TODO: constrain y so it doesn't crawl up the screen
 }
 
-// delegate stuff : be wery wery careful - Elmer Fudd
-- (void)textViewDidChangeSelection:(NSNotification *)notification
-{
-  [self setTypingAttributes:attrs];
-}
-
 @end
 
 @implementation ConsoleWindow
-- (void)consoleInit
+- (void)consoleInitWithFont: (NSFont *) font
 {
-  //app = a;
-  int width = 600; // window
-  int height = 468;
-  //monoFont = [NSFont fontWithName:@"Menlo" size:14.0]; //menlo is monospace
-  monoFont = [NSFont fontWithName:@"Times-Roman" size:14.0]; //menlo is monospace
-  NSString *fontName = [monoFont fontName];  // just for debug purposes.
-  const char *cFontName = [fontName UTF8String];
-  float fh = [monoFont pointSize];  // access properties
-#define PNLH 40
+  monoFont = font;
+  NSRect winRect = [[self contentView] frame]; // doesn't do what I think
+  NSSize charSize = [monoFont maximumAdvancement];
+  float fw = charSize.width;
+  float fh = [monoFont pointSize]+2.0;
+  int width = (int)(fw * 80.0);
+  int height = (int)(fh * 24);
+  int btnPanelH = 40;
+//#define PNLH 40
   [self setTitle: @"(New) Shoes Console"];
   //[self center]; // there is a bug report about centering.
   [self makeKeyAndOrderFront: self];
@@ -88,7 +98,8 @@ void console_haveChar(void *p, char c); // forward ref
   [self setAutorecalculatesKeyViewLoop: YES];
   [self setDelegate: (id <NSWindowDelegate>)self];
   // setup the copy and clear buttons (yes command key handling would be better)
-  btnpnl = [[NSBox alloc] initWithFrame: NSMakeRect(0,height-PNLH,width,PNLH)];
+  //btnpnl = [[NSBox alloc] initWithFrame: NSMakeRect(0,height-PNLH,width,PNLH)];
+  btnpnl = [[NSBox alloc] initWithFrame: NSMakeRect(0,height,width,btnPanelH)];
   [btnpnl setTitlePosition: NSNoTitle ];
   [btnpnl setAutoresizingMask: NSViewWidthSizable|NSViewMinYMargin];
   // draw the icon
@@ -98,15 +109,25 @@ void console_haveChar(void *p, char c); // forward ref
   NSImageView *ictl = [[NSImageView alloc] initWithFrame: iconRect];
   [ictl setImage: icon];
   [ictl setEditable: false];
-  //[icon drawInRect: iconRect];
-  clrbtn = [[NSButton alloc] initWithFrame: NSMakeRect(400, 2, 60, 28)];
+
+  NSTextField *labelWidget;
+  labelWidget = [[NSTextField alloc] initWithFrame: NSMakeRect(80, -2, 200, 28)];
+  [labelWidget setStringValue: @"Very Dumb Console"];
+  [labelWidget setBezeled:NO];
+  [labelWidget setDrawsBackground:NO];
+  [labelWidget setEditable:NO];
+  [labelWidget setSelectable:NO];
+  NSFont *labelFont = [NSFont fontWithName:@"Helvetica" size:18.0];
+  [labelWidget setFont: labelFont];
+
+  clrbtn = [[NSButton alloc] initWithFrame: NSMakeRect(300, -2, 60, 28)];
   [clrbtn setButtonType: NSMomentaryPushInButton];
   [clrbtn setBezelStyle: NSRoundedBezelStyle];
   [clrbtn setTitle: @"Clear"];
   [clrbtn setTarget: self];
   [clrbtn setAction: @selector(handleClear:)];
 
-  cpybtn = [[NSButton alloc] initWithFrame: NSMakeRect(500, 2, 60, 28)];
+  cpybtn = [[NSButton alloc] initWithFrame: NSMakeRect(400, -2, 60, 28)];
   [cpybtn setButtonType: NSMomentaryPushInButton];
   [cpybtn setBezelStyle: NSRoundedBezelStyle];
   [cpybtn setTitle: @"Copy"];
@@ -114,24 +135,41 @@ void console_haveChar(void *p, char c); // forward ref
   [cpybtn setAction: @selector(handleCopy:)];
 
   [btnpnl addSubview: ictl];
+  [btnpnl addSubview: labelWidget];
   [btnpnl addSubview: clrbtn];
   [btnpnl addSubview: cpybtn];
   // init termpnl and textview here.
   // Note NSTextView is subclass of NSText so there are MANY methods to learn
   // not to mention delagates and protocols
-  termView = [[ConsoleTermView alloc]  initWithFrame: NSMakeRect(0, 0, width, 468-PNLH)];
 
-  termpnl = [[NSScrollView alloc] initWithFrame: NSMakeRect(0, 0, width, 468-PNLH)];
+  // compute the Size of the window for the font and size
+  NSRect textViewBounds = NSMakeRect(0, 0, width, height);
+
+  // setup internals for NSTextView - there are many
+  termStorage = [[NSTextStorage alloc] init];
+  [termStorage setFont: monoFont];
+  termLayout = [[NSLayoutManager alloc] init];
+  [termStorage addLayoutManager:termLayout];
+  termContainer = [[NSTextContainer alloc] initWithContainerSize:textViewBounds.size];
+  [termLayout addTextContainer:termContainer];
+
+  //termView = [[ConsoleTermView alloc]  initWithFrame: textViewBounds];
+  //termView = [[ConsoleTermView alloc]  initWithFrame: NSMakeRect(0, height, width, height-btnPanelH)];
+  termView = [[ConsoleTermView alloc]  initWithFrame: NSMakeRect(0, 0, width, height)];
+
+  termpnl = [[NSScrollView alloc] initWithFrame: NSMakeRect(0, 0, width, height)];
   [termpnl setHasVerticalScroller: YES];
+  //causes btnpnl to vanish. Fixes many resizing issues though:
+  [termpnl setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
   [termpnl setDocumentView: termView];
 
   // Put the panels in the Window
-  cntview = [[NSView alloc] initWithFrame: NSMakeRect(0, 0 ,width, 468)];
+  cntview = [[NSView alloc] initWithFrame: NSMakeRect(0,height+btnPanelH,width,height+btnPanelH)];
+  [self setContentView: cntview];
   [cntview setAutoresizesSubviews: YES];
   [cntview addSubview: btnpnl];
   [cntview addSubview: termpnl];
-  [self setContentView: cntview];
-
+  [self makeFirstResponder:termView];
   // Now init the Tesi object - NOTE tesi callbacks are C,  which calls Objective-C
   tobj = newTesiObject("/bin/bash", 80, 24); // first arg not used, 2 and 3 not either
   tobj->pointer = (void *)self;
@@ -139,20 +177,17 @@ void console_haveChar(void *p, char c); // forward ref
 
   // try inserting some text.
   //[[termView textStorage] appendAttributedString: [[NSAttributedString alloc] initWithString: @"First Line!\n"]];
-  [termView initView: self withFont: monoFont];
-  NSFont *useFont = [termView font];
-  fontName = [useFont fontName];  // just for debug purposes.
-  cFontName = [fontName UTF8String];
-  fh = [useFont pointSize];  // access properties
+
+  [termView initView: self withFont: monoFont]; // tell ConsoleTermView what font to use
 
   // need to get the handleInput started
-  // OSX timer resolution less than 0.1 second unlikely
+  // OSX timer resolution less than 0.1 second unlikely?
   cnvbfr = [[NSMutableString alloc] initWithCapacity: 4];
   pollTimer = [NSTimer scheduledTimerWithTimeInterval:0.1
                             target: self selector:@selector(readStdout:)
                             userInfo: self repeats:YES];
   // debug
-  printf("Using %s %3.1f\n", cFontName, fh);
+  // printf("w = %d, h = %d winh = %d \n", width, height, winRect.size.height);
 }
 
 -(IBAction)handleClear: (id)sender
@@ -225,9 +260,16 @@ void console_haveChar(void *p, char c); // forward ref
 int shoes_native_console()
 {
   //NSLog(@"Console starting");
+  NSFont *font = [NSFont fontWithName:@"Menlo" size:11.0]; //menlo is monospace
+  NSSize charSize = [font maximumAdvancement];
+  float fw = charSize.width;
+  float fh = [font pointSize]+2.0;
+  int width = (int)(fw * 80.0);
+  int height = (int)(fh * 24);
+  int btnPanelH = 40; //TODO: dont hardcode this here
   ConsoleWindow *window;
   unsigned int mask = NSTitledWindowMask | NSClosableWindowMask | NSMiniaturizableWindowMask;
-  NSRect rect = NSMakeRect(0, 0, 600, 468);
+  NSRect rect = NSMakeRect(0, 0, width, height+btnPanelH); //Screen co-ords?
   //NSSize size = {app->minwidth, app->minheight};
 
   //if (app->resizable)
@@ -236,9 +278,9 @@ int shoes_native_console()
     styleMask: mask backing: NSBackingStoreBuffered defer: NO];
   //if (app->minwidth > 0 || app->minheight > 0)
   //  [window setContentMinSize: size];
-  [window consoleInit];
+  [window consoleInitWithFont: font];
   // Fire up console window, switch stdin..
-  printf("mak\010c\t console \t\tcreated\n"); //test \b \t in string
+  printf("Mak\010c\t console \t\tcreated\n"); //test \b \t in string
   return 1;
 }
 

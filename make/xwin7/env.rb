@@ -3,6 +3,7 @@
 # It's not really a chroot - it only looks like one and Gtk2/3 is different
 # Remember, on Windows the dlls are in bin/ 
 cf =(ENV['ENV_CUSTOM'] || "#{TGT_ARCH}-custom.yaml")
+gtk_version = '2'
 if File.exists? cf
   custmz = YAML.load_file(cf)
   ShoesDeps = custmz['Deps']
@@ -14,6 +15,7 @@ if File.exists? cf
   APP['EXTLIST'] = custmz['Exts'] if custmz['Exts']
   APP['GEMLIST'] = custmz['Gems'] if custmz['Gems']
   APP['INCLGEMS'] = custmz['InclGems'] if custmz['InclGems']
+  gtk_version = custmz['GtkVersion'].to_s if custmz['GtkVersion']
 else
   # define where your deps are
   ShoesDeps = "/home/ccoupe/Projects/shoesdeps/mingw"
@@ -24,8 +26,9 @@ end
 SHOES_GEM_ARCH = 'x86-mingw32' 
 # used in copy_gems #{Gem::Platform.local}
 #ENV['DEBUG'] = "true" # turns on the tracing log
+APP['GTK'] = "gtk+-#{gtk_version}.0"
 #APP['GTK'] = "gtk+-3.0" # pick this or "gtk+-2.0"
-APP['GTK'] = "gtk+-2.0"
+#APP['GTK'] = "gtk+-2.0"
 COPY_GTK = true
 #ENV['GDB'] = "basic" # 'basic' = keep symbols,  or 'profile'
 #EXT_RUBY = "/srv/chroot/mingwgtk2/usr/local"
@@ -62,10 +65,16 @@ pkggtk ="#{uldir}/pkgconfig/#{APP['GTK']}.pc"
 RUBY_HTTP = true
 
 ENV['PKG_CONFIG_PATH'] = "#{ularch}/pkgconfig"
-WINVERSION = "#{APP['VERSION']}-#{APP['GTK']=='Gtk+-3.0' ? 'gtk3' : 'gtk2'}-32"
+WINVERSION = "#{APP['VERSION']}-#{APP['GTK']=='gtk+-3.0' ? 'gtk3' : 'gtk2'}-32"
 WINFNAME = "#{APPNAME}-#{WINVERSION}"
+gtk_extra_list = []
+if APP['GTK'] == "gtk+-3.0"
+  gtk_extra_list = %w(shoes/native/gtkfixedalt.c shoes/native/gtkentryalt.c
+               shoes/native/gtkcomboboxtextalt.c shoes/native/gtkbuttonalt.c
+               shoes/native/gtkscrolledwindowalt.c shoes/native/gtkprogressbaralt.c )
+end
 if RUBY_HTTP
-  file_list = %w{shoes/native/gtk.c shoes/http/rbload.c} + ["shoes/*.c"]
+  file_list = %w{shoes/native/gtk.c shoes/http/rbload.c} + gtk_extra_list + ["shoes/*.c"]
 else
   file_list = %w{shoes/native/gtk.c shoes/http/winhttp.c shoes/http/windownload.c} + ["shoes/*.c"] 
 end
@@ -167,7 +176,7 @@ if APP['GTK'] == 'gtk+-3.0' && COPY_GTK == true
       'atk'         => "#{bindll}/libatk-1.0-0.dll",
       'cairo'       => "#{bindll}/libcairo-2.dll",
       'cairo-gobj'  => "#{bindll}/libcairo-gobject-2.dll",
-      'ffi'         => "#{bindll}/libffi-6.dll",
+      'ffi'        => "#{bindll}/libffi-6.dll",
       'fontconfig'  => "#{bindll}/libfontconfig-1.dll",
       'freetype'    => "#{bindll}/libfreetype-6.dll",
       'gdkpixbuf'   => "#{bindll}/libgdk_pixbuf-2.0-0.dll",
@@ -177,20 +186,20 @@ if APP['GTK'] == 'gtk+-3.0' && COPY_GTK == true
       'gmodule'     => "#{bindll}/libgmodule-2.0-0.dll",
       'gobject'     => "#{bindll}/libgobject-2.0-0.dll",
       'gtk3'        => "#{bindll}/libgtk-3-0.dll",
-      'iconv'       => "#{bindll}/libiconv-2.dll",
-      'intl8'       => "#{bindll}/libintl-8.dll",
+      'pixman'      => "#{bindll}/libpixman-1-0.dll", 
+      'intl8'        => "#{bindll}/libintl-8.dll",
       'pango'       => "#{bindll}/libpango-1.0-0.dll",
       'pangocairo'  => "#{bindll}/libpangocairo-1.0-0.dll",
       'pangoft'     => "#{bindll}/libpangoft2-1.0-0.dll",
       'pango32'     => "#{bindll}/libpangowin32-1.0-0.dll",
-      'pixman'      => "#{bindll}/libpixman-1-0.dll",
-      'png15'       => "#{bindll}/libpng15-15.dll",
+      'pixbuf'      => "#{bindll}/libgdk_pixbuf-2.0-0.dll",
+      'harfbuzz'    => "#{bindll}/libharfbuzz-0.dll",
+      'png16'       => "#{bindll}/libpng16-16.dll",
       'xml2'        => "#{bindll}/libxml2-2.dll",
-      'pthread'     => "#{bindll}/pthreadGC2.dll",
+      'thread'      => "#{bindll}/libgthread-2.0-0.dll",
       'zlib1'       => "#{bindll}/zlib1.dll",
-      'lzma'        => "#{bindll}/liblzma-5.dll",
-      'pthreadGC2'  => "#{bindll}/pthreadGC2.dll",  # GTK3 
-      'pthread'     => "/usr/i686-w64-mingw32/lib/libwinpthread-1.dll" # Ruby
+      'siji'        => "/usr/lib/gcc/i686-w64-mingw32/4.8/libgcc_s_sjlj-1.dll",
+      'pthread'     => "/usr/i686-w64-mingw32/lib/libwinpthread-1.dll" 
     }
   )
 end

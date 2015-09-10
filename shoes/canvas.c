@@ -1003,6 +1003,36 @@ shoes_canvas_edit_box(int argc, VALUE *argv, VALUE self)
 }
 
 VALUE
+shoes_canvas_text_edit_box(int argc, VALUE *argv, VALUE self)
+{
+  rb_arg_list args;
+  VALUE phrase = Qnil, attr = Qnil, text_edit_box;
+  SETUP();
+
+  switch (rb_parse_args(argc, argv, "h,S|h,", &args))
+  {
+    case 1:
+      attr = args.a[0];
+    break;
+
+    case 2:
+      phrase = args.a[0];
+      attr = args.a[1];
+    break;
+  }
+
+  if (!NIL_P(phrase))
+    ATTRSET(attr, text, phrase);
+
+  if (rb_block_given_p())
+    ATTRSET(attr, change, rb_block_proc());
+
+  text_edit_box = shoes_control_new(cTextEditBox, attr, self);
+  shoes_add_ele(canvas, text_edit_box);
+  return text_edit_box;
+}
+
+VALUE
 shoes_canvas_list_box(int argc, VALUE *argv, VALUE self)
 {
   rb_arg_list args;
@@ -1500,19 +1530,19 @@ shoes_canvas_clear_contents(int argc, VALUE *argv, VALUE self)
   
   int i;
   for (i = 0; i < RARRAY_LEN(canvas->contents); i++)
+  {
+    VALUE ele = rb_ary_entry(canvas->contents, i);
+    if (rb_obj_class(ele) == cRadio)
     {
-      VALUE ele = rb_ary_entry(canvas->contents, i);
-      if (rb_obj_class(ele) == cRadio)
-      {
-          shoes_control *self_t;
-          Data_Get_Struct(ele, shoes_control, self_t);
-          
-          VALUE group = ATTR(self_t->attr, group);
-          if (NIL_P(group)) group = self_t->parent;
-          if (!shoes_hash_get(canvas->app->groups, group) == Qnil);
-                shoes_hash_set(canvas->app->groups, group, Qnil);
-      }
+        shoes_control *self_t;
+        Data_Get_Struct(ele, shoes_control, self_t);
+        
+        VALUE group = ATTR(self_t->attr, group);
+        if (NIL_P(group)) group = self_t->parent;
+        if (!shoes_hash_get(canvas->app->groups, group) == Qnil);
+              shoes_hash_set(canvas->app->groups, group, Qnil);
     }
+  }
   
   if (rb_block_given_p()) block = rb_block_proc();
   shoes_canvas_empty(canvas, FALSE);
@@ -1772,7 +1802,11 @@ shoes_canvas_send_start(VALUE self)
       if (rb_obj_is_kind_of(ele, cCanvas) && shoes_canvas_inherits(ele, canvas))
         shoes_canvas_send_start(ele);
     }
-
+    
+    // Do we have a :start style attribute ? This is not the 'start' method/event which
+    // is handled by shoes_canvas_start() build by EVENT_HANDLER(start).
+    // This attribute is set either explicitely with a :start style in the slot declaration
+    // either by the 'start' method/event of a slot (if by mistake, both are used the method takes precedence)
     VALUE start = ATTR(canvas->attr, start);
     if (!NIL_P(start))
     {
@@ -1811,7 +1845,7 @@ shoes_canvas_send_click2(VALUE self, int button, int x, int y, VALUE *clicked)
   if (ATTR(self_t->attr, hidden) != Qtrue)
   {
     if (self_t->app->canvas == self) // when we are the app's slot
-        y -= self_t->slot->scrolly;
+      y -= self_t->slot->scrolly;
     
     if (IS_INSIDE(self_t, x, y))
     {
