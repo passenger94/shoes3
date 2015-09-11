@@ -188,7 +188,7 @@ shoes_surface_create_from_pixels(PIXEL *pixels, int width, int height)
   cairo_surface_t *surface;
   cairo_user_data_key_t key;
   int j;
- 
+  
   cairo_pixels = (guchar *)g_malloc(4 * width * height);
   surface = cairo_image_surface_create_for_data((unsigned char *)cairo_pixels,
     CAIRO_FORMAT_ARGB32,
@@ -293,7 +293,7 @@ shoes_surface_create_from_gif(char *filename, int *width, int *height, unsigned 
   gif = DGifOpenFileName(filename);
   if (gif == NULL)
     goto done;
-
+  
   do
   {
     if (DGifGetRecordType(gif, &rec) == GIF_ERROR)
@@ -305,19 +305,19 @@ shoes_surface_create_from_gif(char *filename, int *width, int *height, unsigned 
            /* PrintGifError(); */
            rec = TERMINATE_RECORD_TYPE;
         }
-      w = gif->Image.Width;
+  w = gif->Image.Width;
       if (width != NULL) *width = w;
-      h = gif->Image.Height;
+  h = gif->Image.Height;
       if (height != NULL) *height = h;
       if ((w < 1) || (h < 1) || (w > 8192) || (h > 8192))
         goto done;
-
+  
       if (!load)
       {
         surface = SIZE_SURFACE;
         goto done;
       }
-
+  
       rows = SHOE_ALLOC_N(GifPixelType *, h);
       if (rows == NULL)
         goto done;
@@ -397,7 +397,7 @@ shoes_surface_create_from_gif(char *filename, int *width, int *height, unsigned 
 
   if ((w < 1) || (h < 1) || (w > 8192) || (h > 8192))
     goto done;
-
+  
   surface = shoes_surface_create_from_pixels(pixels, w, h);
 
 done:
