@@ -281,118 +281,68 @@ shoes_surface_create_from_gif(char *filename, int *width, int *height, unsigned 
   cairo_surface_t *surface = NULL;
   GifFileType *gif;
   PIXEL *ptr = NULL, *pixels = NULL;
-  GifPixelType **rows = NULL;
-  GifRecordType rec;
   ColorMapObject *cmap;
   int i, j, bg, r, g, b, w = 0, h = 0, done = 0, transp = -1;
-  float per = 0.0f, per_inc;
-  int intoffset[] = { 0, 4, 2, 1 };
-  int intjump[] = { 8, 8, 4, 2 };
+//  float per = 0.0f, per_inc; /* What is this ? */
 
   transp = -1;
   gif = DGifOpenFileName(filename);
   if (gif == NULL)
     goto done;
   
-  do
-  {
-    if (DGifGetRecordType(gif, &rec) == GIF_ERROR)
-      rec = TERMINATE_RECORD_TYPE;
-    if ((rec == IMAGE_DESC_RECORD_TYPE) && (!done))
-    {
-      if (DGifGetImageDesc(gif) == GIF_ERROR)
-        {
-           /* PrintGifError(); */
-           rec = TERMINATE_RECORD_TYPE;
-        }
+  DGifSlurp(gif);
+  printf("nbr images : %d\n", gif->ImageCount);
+  
+  int idx = 0;
+  gif->Image = gif->SavedImages[idx].ImageDesc;
   w = gif->Image.Width;
-      if (width != NULL) *width = w;
   h = gif->Image.Height;
-      if (height != NULL) *height = h;
-      if ((w < 1) || (h < 1) || (w > 8192) || (h > 8192))
-        goto done;
   
-      if (!load)
-      {
-        surface = SIZE_SURFACE;
-        goto done;
-      }
-  
-      rows = SHOE_ALLOC_N(GifPixelType *, h);
-      if (rows == NULL)
-        goto done;
-
-      SHOE_MEMZERO(rows, GifPixelType *, h);
-
-      for (i = 0; i < h; i++)
-      {
-        rows[i] = SHOE_ALLOC_N(GifPixelType, w);
-        if (rows[i] == NULL)
-          goto done;
-      }
-
-      if (gif->Image.Interlace)
-      {
-        for (i = 0; i < 4; i++)
-        {
-          for (j = intoffset[i]; j < h; j += intjump[i])
-            DGifGetLine(gif, rows[j], w);
-        }
-      }
-      else
-      {
-        for (i = 0; i < h; i++)
-          DGifGetLine(gif, rows[i], w);
-      }
-      done = 1;
-    }
-    else if (rec == EXTENSION_RECORD_TYPE)
-    {
-      int ext_code;
-      GifByteType *ext = NULL;
-      DGifGetExtension(gif, &ext_code, &ext);
-      while (ext)
-      {
-        if ((ext_code == 0xf9) && (ext[1] & 1) && (transp < 0))
-          transp = (int)ext[4];
-        ext = NULL;
-        DGifGetExtensionNext(gif, &ext);
-      }
-    }
-  } while (rec != TERMINATE_RECORD_TYPE);
+  GifPixelType *rows = gif->SavedImages[idx].RasterBits;
 
   bg = gif->SBackGroundColor;
   cmap = (gif->Image.ColorMap ? gif->Image.ColorMap : gif->SColorMap);
+
+//  printf("w, h = %d, %d\n", w, h);
+//  for (i = 0; i < h; i++) {
+//    for (j = 0; j < w; j++) {
+////    printf("rows2[i][j] : %d, %d, %d\n", i, j, rows1[j]);
+////    printf("R G B : %d, %d, %d\n", cmap->Colors[rows1[j]].Red, cmap->Colors[rows1[j]].Green, cmap->Colors[rows1[j]].Blue);
+//    }
+//    rows1++;
+//  }
+  
   pixels = SHOE_ALLOC_N(PIXEL, w * h);
   if (pixels == NULL)
     goto done;
 
+  /**
+   * @rows is a pointer to an array of lines of the current frame,
+   * it points at the first row of the image
+   * row[n] is the nth pixel of a given row
+   */
   ptr = pixels;
-  per_inc = 100.0f / (((float)w) * h);
-  for (i = 0; i < h; i++)
-  {
-    for (j = 0; j < w; j++)
-    {
-      if (rows[i][j] == transp)
-      {
+//  per_inc = 100.0f / (((float)w) * h);  /* What is this ? */
+  for (i = 0; i < h; i++) {
+    for (j = 0; j < w; j++) {
+      if (rows[j] == transp) {
         r = cmap->Colors[bg].Red;
         g = cmap->Colors[bg].Green;
         b = cmap->Colors[bg].Blue;
         *ptr = 0x00ffffff & ((r << 16) | (g << 8) | b);
         LE_CPU(*ptr);
         ptr++;
-      }
-      else
-      {
-        r = cmap->Colors[rows[i][j]].Red;
-        g = cmap->Colors[rows[i][j]].Green;
-        b = cmap->Colors[rows[i][j]].Blue;
+      } else {
+        r = cmap->Colors[rows[j]].Red;
+        g = cmap->Colors[rows[j]].Green;
+        b = cmap->Colors[rows[j]].Blue;
         *ptr = (0xff << 24) | (r << 16) | (g << 8) | b;
         LE_CPU(*ptr);
         ptr++;
       }
-      per += per_inc;
+//      per += per_inc;  /* ? */
     }
+    rows++; /* moving pointer */
   }
 
   if ((w < 1) || (h < 1) || (w > 8192) || (h > 8192))
@@ -403,12 +353,14 @@ shoes_surface_create_from_gif(char *filename, int *width, int *height, unsigned 
 done:
   if (gif != NULL) DGifCloseFile(gif);
   if (pixels != NULL) SHOE_FREE(pixels);
-  if (rows != NULL) {
-    for (i = 0; i < h; i++)
-      if (rows[i] != NULL)
-        SHOE_FREE(rows[i]);
-    SHOE_FREE(rows);
-  }
+//  if (rows != NULL) {
+//    for (i = 0; i < h; i++) {
+//      if (rows != NULL) SHOE_FREE(rows);
+//      rows++;
+//    }
+////    SHOE_FREE(rows);
+//  }
+
   return surface;
 }
 
