@@ -58,7 +58,8 @@ PANGO_LIB = `pkg-config --libs pango`.strip
 GTK_FLAGS = "#{`pkg-config --cflags #{APP['GTK']}`.strip}"
 GTK_LIB = "#{`pkg-config --libs #{APP['GTK']}`.strip}"
 
-MISC_LIB = " -lgif -ljpeg "
+#MISC_LIB = " -lgif -ljpeg "
+MISC_LIB = " -L. -L./req -lgif -ljpeg "
 
 # collect flags together
 LINUX_CFLAGS << " #{RUBY_CFLAGS} #{GTK_FLAGS} #{CAIRO_CFLAGS} #{PANGO_CFLAGS}"

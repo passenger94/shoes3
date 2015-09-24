@@ -28,7 +28,7 @@
 #endif
 #define DrawText gif_DrawText
 #endif
-#include <gif_lib.h>
+#include <./req/gif_lib.h>
 
 shoes_image_format shoes_image_detect(VALUE, int *, int *);
 
@@ -275,6 +275,20 @@ done:
   return surface;
 }
 
+typedef struct {
+  PIXEL *data;
+  int width, height;
+} gifFrame;
+
+typedef struct {
+//  cairo_surface_t **frames;
+  gifFrame *framesdata;
+  int count;
+  int actual;
+  float delay;/* in ms  (maybe in seconds  a float ?) */
+  gboolean looping;
+} gifFramesSet;
+
 cairo_surface_t *
 shoes_surface_create_from_gif(char *filename, int *width, int *height, unsigned char load)
 {
@@ -282,87 +296,122 @@ shoes_surface_create_from_gif(char *filename, int *width, int *height, unsigned 
   GifFileType *gif;
   PIXEL *ptr = NULL, *pixels = NULL;
   ColorMapObject *cmap;
-  int i, j, bg, r, g, b, w = 0, h = 0, done = 0, transp = -1;
+  int i, j, bg, r, g, b, w = 0, h = 0, done = 0, transp = -1, nbrImgs = 1;
+  float delay = 10; /* ms*/
+  int error, errorcode;
+  gifFramesSet framesSet;
 //  float per = 0.0f, per_inc; /* What is this ? */
-
-  transp = -1;
-  gif = DGifOpenFileName(filename);
-  if (gif == NULL)
-    goto done;
   
-  DGifSlurp(gif);
-  printf("nbr images : %d\n", gif->ImageCount);
-  
-  int idx = 0;
-  gif->Image = gif->SavedImages[idx].ImageDesc;
-  w = gif->Image.Width;
-  h = gif->Image.Height;
-  
-  GifPixelType *rows = gif->SavedImages[idx].RasterBits;
-
-  bg = gif->SBackGroundColor;
-  cmap = (gif->Image.ColorMap ? gif->Image.ColorMap : gif->SColorMap);
-
-//  printf("w, h = %d, %d\n", w, h);
-//  for (i = 0; i < h; i++) {
-//    for (j = 0; j < w; j++) {
-////    printf("rows2[i][j] : %d, %d, %d\n", i, j, rows1[j]);
-////    printf("R G B : %d, %d, %d\n", cmap->Colors[rows1[j]].Red, cmap->Colors[rows1[j]].Green, cmap->Colors[rows1[j]].Blue);
-//    }
-//    rows1++;
-//  }
-  
-  pixels = SHOE_ALLOC_N(PIXEL, w * h);
-  if (pixels == NULL)
-    goto done;
-
-  /**
-   * @rows is a pointer to an array of lines of the current frame,
-   * it points at the first row of the image
-   * row[n] is the nth pixel of a given row
-   */
-  ptr = pixels;
-//  per_inc = 100.0f / (((float)w) * h);  /* What is this ? */
-  for (i = 0; i < h; i++) {
-    for (j = 0; j < w; j++) {
-      if (rows[j] == transp) {
-        r = cmap->Colors[bg].Red;
-        g = cmap->Colors[bg].Green;
-        b = cmap->Colors[bg].Blue;
-        *ptr = 0x00ffffff & ((r << 16) | (g << 8) | b);
-        LE_CPU(*ptr);
-        ptr++;
-      } else {
-        r = cmap->Colors[rows[j]].Red;
-        g = cmap->Colors[rows[j]].Green;
-        b = cmap->Colors[rows[j]].Blue;
-        *ptr = (0xff << 24) | (r << 16) | (g << 8) | b;
-        LE_CPU(*ptr);
-        ptr++;
-      }
-//      per += per_inc;  /* ? */
+  gif = DGifOpenFileName(filename, &error);
+  if (gif != NULL) {
+    
+    if (!load) {  /* coming from shoes_image_detect, we're done here */
+      surface = SIZE_SURFACE;
+      goto done;
     }
-    rows++; /* moving pointer */
+    
+    DGifSlurp(gif);
+
+    nbrImgs = gif->ImageCount;
+//    printf("nbr images : %d\n", nbrImgs);
+    
+    /* global array containing all the frames data */
+    gifFrame gfarr[nbrImgs];
+    
+    /* get all the frames data */
+    int idx;
+    for (idx = 0; idx < nbrImgs; idx++) {
+
+      gif->Image = gif->SavedImages[idx].ImageDesc;
+      w = gif->Image.Width;
+      h = gif->Image.Height;
+      if ((w < 1) || (h < 1) || (w > 8192) || (h > 8192))
+        goto done;
+      
+      /* get basic info about animation: delay between frames,
+       * transparency, background color and colormap */
+      if (idx == 0) {
+        GraphicsControlBlock GCB;
+        DGifSavedExtensionToGCB(gif, idx, &GCB);
+        transp = GCB.TransparentColor;
+        delay = delay*GCB.DelayTime;
+        printf("delay time = %2fms, TransparentColor : %d\n", delay, transp);
+      
+        bg = gif->SBackGroundColor;
+        cmap = (gif->Image.ColorMap ? gif->Image.ColorMap : gif->SColorMap);
+      }
+      
+      pixels = SHOE_ALLOC_N(PIXEL, w * h);
+      if (pixels == NULL)
+        goto done;
+
+      GifPixelType *rows;
+      rows = gif->SavedImages[idx].RasterBits;
+      
+      ptr = pixels;
+    //  per_inc = 100.0f / (((float)w) * h);  /* What is this ? */
+      for (i = 0; i < h; i++) {
+        for (j = 0; j < w; j++) {
+          if (*rows == transp) {
+            r = cmap->Colors[bg].Red;
+            g = cmap->Colors[bg].Green;
+            b = cmap->Colors[bg].Blue;
+            *ptr = 0x00ffffff & ((r << 16) | (g << 8) | b);
+          } else {
+            r = cmap->Colors[*rows].Red;
+            g = cmap->Colors[*rows].Green;
+            b = cmap->Colors[*rows].Blue;
+            *ptr = (0xff << 24) | (r << 16) | (g << 8) | b;
+          }
+          LE_CPU(*ptr);
+          ptr++;
+          rows++;
+    //      per += per_inc;  /* ? */
+        }
+      }
+      
+      gifFrame pixelsframe;
+      
+      pixelsframe.width = w;
+      pixelsframe.height = h;
+      pixelsframe.data = pixels;
+      gfarr[idx] = pixelsframe;
+    }
+    
+    /* Not used now, gathering pieces for animation */
+    framesSet.count = nbrImgs;
+    framesSet.actual = 1; /* first frame is index 1, 0 is static background */
+    framesSet.delay = delay;
+    framesSet.looping = TRUE; /* provide a way to stop/restart an animation ? */
+    framesSet.framesdata = (gifFrame *)&gfarr;
+    
+    gifFrame frame0 = *framesSet.framesdata;
+//    gifFrame frame1 = frms.framesdata[1]; //etc...
+    return shoes_surface_create_from_pixels(frame0.data, frame0.width, frame0.height);
   }
-
-  if ((w < 1) || (h < 1) || (w > 8192) || (h > 8192))
-    goto done;
   
-  surface = shoes_surface_create_from_pixels(pixels, w, h);
-
-done:
-  if (gif != NULL) DGifCloseFile(gif);
+  done:
+  if (gif != NULL) DGifCloseFile(gif, &errorcode);
   if (pixels != NULL) SHOE_FREE(pixels);
-//  if (rows != NULL) {
-//    for (i = 0; i < h; i++) {
-//      if (rows != NULL) SHOE_FREE(rows);
-//      rows++;
-//    }
-////    SHOE_FREE(rows);
-//  }
-
+  
   return surface;
 }
+
+/**
+ * intended to be called somewhere by
+ * g_timeout_add(delay, shoes_gif_animate, (gpointer)data )
+ */
+static gboolean
+shoes_gif_animate(gpointer data)
+{
+  gifFramesSet *gframes = (gifFramesSet*)data;
+  if (gframes->looping) {
+    
+    gframes->actual++;
+  }
+  return gframes->looping;
+}
+
 
 //
 // JPEG handling code
