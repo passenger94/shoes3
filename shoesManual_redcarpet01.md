@@ -4001,7 +4001,8 @@ custom widget and wire up. We might get an easier method built in the future but
 for now, you need to do it the hard way.
 
 To add a video you need to 
-```rubyrequire 'shoes/videoffi'
+```ruby
+require 'shoes/videoffi'
 Vlc.load_lib 
 ```
 
