@@ -18,7 +18,7 @@ this simple line of Ruby code, a window appears with a button inside reading
 On Linux, here's how this might look: ![:margin_left => 100](/static/man-shot1.png)
 
 While lots of Shoes apps are graphical games and art programs, you can also
-layout text and edit controls easily. ![:margin_left => 40](/home/xy/NBWorkspace/shoes3/dist/static/shoes-manual-apps.png)
+layout text and edit controls easily. ![:margin_left => 40](/static/shoes-manual-apps.png)
 
 And, ideally, Shoes programs will run on any of the major platforms out there.
 Microsoft Windows, Apple's Mac OS X, Linux and many others.
@@ -40,7 +40,7 @@ Shoes runs on Apple Mac OS X 10.9 Mavericks.  Shoes no longer runs on PPC Macs
 or 32 bit Macs because Apple doesn't think they exist. Shoes may run on earlier 
 64 bit Intel versions of OSX like 10.8 but you should not depend on that. 
 
-![man-look-mavericks.png](/home/xy/NBWorkspace/shoes3/dist/static/man-look-mavericks.png)
+![man-look-mavericks.png](/static/man-look-mavericks.png)
 
 Don't worry. You can make things as pretty as you care to. That particular app
 is not worth the effort to prettify. It's utilitarian, a single purpose and odds are only 
@@ -55,7 +55,7 @@ other method.
 
 Shoes runs on all versions of **Microsoft Windows XP**, **Windows Vista**,
 **Windows 7**, and anything else **Windows 2000** compatible. 
-![man-look-vista.png](/home/xy/NBWorkspace/shoes3/dist/static/man-look-vista.png)
+![man-look-vista.png](/static/man-look-vista.png)
 
 Above is pictured the `simple-clock.rb` sample running on Windows Vista. This
 example is also draws ovals and lines to build the clock, which is animated to
@@ -68,7 +68,7 @@ loading fonts from a file.
 #### Linux ####
 
 Here's a screenshot of the `simple-downloader.rb` sample running on **Ubuntu
-Linux**. ![man-look-ubuntu.png](/home/xy/NBWorkspace/shoes3/dist/static/man-look-ubuntu.png)
+Linux**. ![man-look-ubuntu.png](/static/man-look-ubuntu.png)
 
 Notice the buttons and progress bars. These types of controls look different on
 OS X and Windows. The text and links would look the same, though.
@@ -93,12 +93,12 @@ through all the steps, though, just to be clear about it.
 
 You'll want to visit [[http://shoesrb.com/ the site of Shoes]] to download
 the Shoes installer.  Usually, you'll just want one of the installers on the
-downloads page of the site. ![man-builds1.png](/home/xy/NBWorkspace/shoes3/dist/static/man-builds1.png)
+downloads page of the site. ![man-builds1.png](/static/man-builds1.png)
 
 Here's how to run the installer:
 
- * On **Mac OS X**, you'll have a file ending with **.tbz** in the Downloads folder.  Double-click this file and a file should appear with a **Shoes** icon. You may be asked to trust the download package. Drag the Shoes icon into the **Applications** folder. ![man-builds2.png](/home/xy/NBWorkspace/shoes3/dist/static/man-builds2.png)
- * On **Windows**, you'll download a **.exe** file.  Double-click this file and follow the instructions. ![man-intro-exe.png](/home/xy/NBWorkspace/shoes3/dist/static/man-intro-exe.png)
+ * On **Mac OS X**, you'll have a file ending with **.tbz** in the Downloads folder.  Double-click this file and a file should appear with a **Shoes** icon. You may be asked to trust the download package. Drag the Shoes icon into the **Applications** folder. ![man-builds2.png](/static/man-builds2.png)
+ * On **Windows**, you'll download a **.exe** file.  Double-click this file and follow the instructions. ![man-intro-exe.png](/static/man-intro-exe.png)
  * On **Linux**, make the **.install** file executable with **chmod +x Shoes-3.2-stuff.install** and run that, **./Shoes-3.2-stuff.install** It will ask for a the admin password to create a menu entry.
 
 #### Step 2: Start a New Text File ####
@@ -107,8 +107,8 @@ Shoes programs are just plain text files ending with a **.rb** extension.
 
 Here are a few ways to create a blank text file:
 
- * On **Mac OS X**, visit your **Applications** folder and double-click on the **TextEdit** app.  A blank editor window should come up.  Now, go to the **Format** menu and select the **Make Plain Text** option.  Okay, you're all set![ !man-editor-osx.png](/home/xy/NBWorkspace/shoes3/dist/static/ !man-editor-osx.png)
- * On **Windows**, go to the Start menu.  Select **All Programs**, then **Accessories**, then **Notepad**. ![man-editor-notepad.png](/home/xy/NBWorkspace/shoes3/dist/static/man-editor-notepad.png)
+ * On **Mac OS X**, visit your **Applications** folder and double-click on the **TextEdit** app.  A blank editor window should come up.  Now, go to the **Format** menu and select the **Make Plain Text** option.  Okay, you're all set![ !man-editor-osx.png](/static/ !man-editor-osx.png)
+ * On **Windows**, go to the Start menu.  Select **All Programs**, then **Accessories**, then **Notepad**. ![man-editor-notepad.png](/static/man-editor-notepad.png)
  * On **Linux**, most distros come with **gedit**.  You might try running that.  Or, if your distro is KDE-based, run **kate**.
 
 Now, in your blank window, type in the following:
@@ -122,11 +122,11 @@ Now, in your blank window, type in the following:
 
 Save to your desktop or home directory as `welcome.rb`.
 
-#### Step 3: Run It![ Go Shoes](/home/xy/NBWorkspace/shoes3/dist/static/ Go Shoes) ####
+#### Step 3: Run It![ Go Shoes](/static/ Go Shoes) ####
 
 There are several ways to run a Shoes program.  The easiest is from the 'splash' screen
 We're going to use the **Open an App** link to browse to where you stored
-`welcome.rb`.  ![man-splash.png](/home/xy/NBWorkspace/shoes3/dist/static/man-splash.png)
+`welcome.rb`.  ![man-splash.png](/static/man-splash.png)
 
 To run your program, start Shoes:
 
@@ -134,7 +134,7 @@ To run your program, start Shoes:
  * On **Windows**, get to the Start menu.  Go into **All Programs**, then **Shoes**, then **Shoes**.  You should see the splash screen above.
  * On **Linux**, Look for the Shoes icon in the  Programming, Education, or Others Menus. Select it.  You should see the splash screen above.
 
-So, not much of a program yet.  But it's something![  You've got the knack of it, at least](/home/xy/NBWorkspace/shoes3/dist/static/  You've got the knack of it, at least)
+So, not much of a program yet.  But it's something![  You've got the knack of it, at least](/static/  You've got the knack of it, at least)
 
 #### What Can You Make With Shoes? ####
 
@@ -873,7 +873,7 @@ App object is created and filled up with stacks, flows and other Shoes
 elements.
 
 The App is the window itself. Which may be closed or cleared and filled with
-new elements. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-app.png)
+new elements. ![:margin_left => 100](/static/man-app.png)
 
 The App itself, in slot/box terminology, is a flow.  See the ''Slots'' section
 for more, but this just means that any elements placed directly at the
@@ -2871,7 +2871,7 @@ empty out the setting.
 
 A background is a color, a gradient or an image that is painted across an
 entire slot.  Both backgrounds and borders are a type of Shoes::Pattern.
-![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-background.png)
+![:margin_left => 100](/static/man-ele-background.png)
 
 Even though it's called a ''background'', you may still place this element in
 front of other elements.  If a background comes after something else painted on
@@ -2924,7 +2924,7 @@ backgrounds and borders.  Reuse it as you like.
 
 A border is a color, gradient or image painted in a line around the edge of any
 slot.  Like the Background element in the last section, a Border is a kind of
-Shoes::Pattern. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-border.png)
+Shoes::Pattern. ![:margin_left => 100](/static/man-ele-border.png)
 
 The first, crucial thing to know about border is that all borders paint a line
 around the **inside** of a slot, not the outside.  So, if you have a slot
@@ -2979,7 +2979,7 @@ backgrounds.
 
 Buttons are, you know, push buttons.  You click them and they do something.
 Buttons are known to say "OK" or "Are you sure?"  And, then, if you're sure,
-you click the button. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-button.png)
+you click the button. ![:margin_left => 100](/static/man-ele-button.png)
 
 ```ruby
  
@@ -3047,7 +3047,7 @@ hits Enter, the button will be clicked.
 
 Check boxes are clickable square boxes than can be either checked or unchecked.
 A single checkbox usually asks a "yes" or "no" question.  Sets of checkboxes
-are also seen in to-do lists. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-check.png)
+are also seen in to-do lists. ![:margin_left => 100](/static/man-ele-check.png)
 
 Here's a sample checklist.
 
@@ -3119,7 +3119,7 @@ Enter, the check will be toggled between its checked and unchecked states.
 
 Edit boxes are wide, rectangular boxes for entering text.  On the web, they
 call these textareas.  These are multi-line edit boxes for entering longer
-descriptions.  Essays, even![ ](/home/xy/NBWorkspace/shoes3/dist/static/ )[:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-editbox.png)
+descriptions.  Essays, even![ ](/static/ )[:margin_left => 100](/static/man-ele-editbox.png)
 
 Without any other styling, edit boxes are sized 200 pixels by 108 pixels.  You
 can also use `:width` and `:height` styles to set specific sizes.
@@ -3211,7 +3211,7 @@ This method appeared in Shoes 3.2.25 and may not be available in Shoes 4.
 
 Edit lines are a slender, little box for entering text. While the EditBox is
 multi-line, an edit line is just one. Line, that is. Horizontal, in fact.
-![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-editline.png)
+![:margin_left => 100](/static/man-ele-editline.png)
 
 The unstyled edit line is 200 pixels wide and 28 pixels wide. Roughly. The
 height may vary on some platforms.
@@ -3282,7 +3282,7 @@ Fills the edit line with the characters of `a string`.
 
 An image is a picture in PNG, JPEG or GIF format. Shoes can resize images or
 flow them in with text. Images can be loaded from a file or directly off the
-web. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-image.png)
+web. ![:margin_left => 100](/static/man-ele-image.png)
 
 To create an image, use the <span style="color:red">image</span> method in a slot:
 
@@ -3432,7 +3432,7 @@ Note that you can control the color of the effect with the `:fill` style and the
 
 List boxes (also called "combo boxes" or "drop-down boxes" or "select boxes" in
 some places) are a list of options that drop down when you click on the box.
-![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-listbox.png)
+![:margin_left => 100](/static/man-ele-listbox.png)
 
 A list box gets its options from an array.  An array (a list) of strings,
 passed into the `:items` style.
@@ -3539,7 +3539,7 @@ now. If nothing is selected, <span style="color:red">nil</span> will be the repl
 
 Progress bars show you how far along you are in an activity. Usually, a
 progress bar represents a percentage (from 0% to 100%.) Shoes thinks of
-progress in terms of the decimal numbers 0.0 to 1.0. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-progress.png)
+progress in terms of the decimal numbers 0.0 to 1.0. ![:margin_left => 100](/static/man-ele-progress.png)
 
 A simple progress bar is 200 pixels wide, but you can use the `:width` style
 (as with all Shoes elements) to lengthen it.
@@ -3572,7 +3572,7 @@ Sets the progress to a decimal number between 0.0 and 1.0.
 
 Radio buttons are a group of clickable circles. Click a circle and it'll be
 marked. Only one radio button can be marked at a time. (This is similar to the
-ListBox, where only one option can be selected at a time.) ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-radio.png)
+ListBox, where only one option can be selected at a time.) ![:margin_left => 100](/static/man-ele-radio.png)
 
 So, how do you decide when to use radio buttons and when to use list boxes?
 Well, list boxes only show one highlighted item unless you click on the box and
@@ -3660,13 +3660,13 @@ Enter, the radio will be toggled between its marked and unmarked states.
 ## Shape ##
 
 A shape is a path outline usually created by drawing methods like <span style="color:red">oval</span> and
-<span style="color:red">rect</span>. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-shape.png)
+<span style="color:red">rect</span>. ![:margin_left => 100](/static/man-ele-shape.png)
 
 See the [[Common]] methods page.  Shapes respond to all of those methods.
 
 ## Slider ##
 
-Sliders allows you to adjust a value, from 0.0 to 1.0, thanks to the handle that can be moved with the mouse or by using the arrow keys. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-slider.png)
+Sliders allows you to adjust a value, from 0.0 to 1.0, thanks to the handle that can be moved with the mouse or by using the arrow keys. ![:margin_left => 100](/static/man-ele-slider.png)
 
 here's a sample showing you a slider in action :
 
@@ -3914,7 +3914,7 @@ you might take further control about details of your svg image for example.
 The TextBlock object represents a group of text organized as a single element.
 A paragraph containing bolded text, for example. A caption containing links and
 bolded text. (So, a <span style="color:red">caption</span> is a TextBlock type.  However, <span style="color:red">link</span> and
-<span style="color:red">strong</span> are TextClass types.) ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-ele-textblock.png)
+<span style="color:red">strong</span> are TextClass types.) ![:margin_left => 100](/static/man-ele-textblock.png)
 
 All of the various types of TextBlock are found on the [[Element Element
 Creation]] page.
@@ -4162,13 +4162,13 @@ Press `Alt-=` or `⌘-=` to open an Interactive Ruby console.
 
 ### Getting started ###
 
-IRB comes with embedded commands to facilitate your interaction. Type **help** in your current session to list all available commands. ![:margin_left => 60](/home/xy/NBWorkspace/shoes3/dist/static/shoes-irb-help.png)
+IRB comes with embedded commands to facilitate your interaction. Type **help** in your current session to list all available commands. ![:margin_left => 60](/static/shoes-irb-help.png)
 
 [[http://www.ruby-lang.org/en/documentation/quickstart/ Ruby in Twenty Minutes]] is an excellent tutorial on Ruby and the first 3 pages are focused on IRB. You can type in those examples in your Shoes Interactive Ruby console.
 
 ### Interacting with Shoes ###
 
-Now let's interact with Shoes objects in order to incrementally create the following GUI in a fast prototyping fashion. ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/shoes-irb-history-lesson.png)
+Now let's interact with Shoes objects in order to incrementally create the following GUI in a fast prototyping fashion. ![:margin_left => 100](/static/shoes-irb-history-lesson.png)
 
 Type the following code in your IRB console to create a [[App.Shoes.app]] with a specific title and size. The variable **app** will contain your newly created window but it is possible to search Shoes apps amongst [[App.Shoes.APPS]]. 
 
@@ -4202,7 +4202,7 @@ Finally, add a last button for entertainment value. You can press **up** or **do
 
 `f.button("2100s") { @p.replace "2100s" }`
 
-Your **Interactive Ruby** console should look like this: ![:margin_left => 60](/home/xy/NBWorkspace/shoes3/dist/static/shoes-irb-sample.png)
+Your **Interactive Ruby** console should look like this: ![:margin_left => 60](/static/shoes-irb-sample.png)
 
 
 
