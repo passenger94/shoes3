@@ -7,7 +7,6 @@ nothing to it.
 You see, the trivial Shoes program can be just one line:
 
 ```ruby
- 
  Shoes.app { button("Click me!") { alert("Good job.") } }
 ```
 
@@ -23,7 +22,7 @@ layout text and edit controls easily.![:margin_left => 40](/static/shoes-manual-
 And, ideally, Shoes programs will run on any of the major platforms out there.
 Microsoft Windows, Apple's Mac OS X, Linux and many others.
 
-^So, welcome to Shoes' built-in manual. This manual is a Shoes program itself!^
+So, welcome to Shoes' built-in manual. This manual is a Shoes program itself!
 
 ## Introducing Shoes ##
 
@@ -53,8 +52,8 @@ other method.
 
 #### Windows ####
 
-Shoes runs on all versions of **Microsoft Windows XP**, **Windows Vista**,
-**Windows 7**, and anything else **Windows 2000** compatible. 
+Shoes runs on all versions of **Microsoft Windows XP''', '''Windows Vista**,
+**Windows 7''', and anything else '''Windows 2000** compatible. 
 !man-look-vista.png!
 
 Above is pictured the `simple-clock.rb` sample running on Windows Vista. This
@@ -67,8 +66,8 @@ loading fonts from a file.
 
 #### Linux ####
 
-Here's a screenshot of the `simple-downloader.rb` sample running on **Ubuntu
-Linux**.![man-look-ubuntu.png](/static/man-look-ubuntu.png)
+Here's a screenshot of the `simple-downloader.rb` sample running on '''Ubuntu
+Linux'''.![man-look-ubuntu.png](/static/man-look-ubuntu.png)
 
 Notice the buttons and progress bars. These types of controls look different on
 OS X and Windows. The text and links would look the same, though.
@@ -97,9 +96,9 @@ downloads page of the site.![man-builds1.png](/static/man-builds1.png)
 
 Here's how to run the installer:
 
- * On **Mac OS X**, you'll have a file ending with **.tbz** in the Downloads folder.  Double-click this file and a file should appear with a **Shoes** icon. You may be asked to trust the download package. Drag the Shoes icon into the **Applications** folder.![man-builds2.png](/static/man-builds2.png)
- * On **Windows**, you'll download a **.exe** file.  Double-click this file and follow the instructions.![man-intro-exe.png](/static/man-intro-exe.png)
- * On **Linux**, make the **.install** file executable with **chmod +x Shoes-3.2-stuff.install** and run that, **./Shoes-3.2-stuff.install** It will ask for a the admin password to create a menu entry.
+ * On **Mac OS X''', you'll have a file ending with '''.tbz''' in the Downloads folder.  Double-click this file and a file should appear with a '''Shoes''' icon. You may be asked to trust the download package. Drag the Shoes icon into the '''Applications** folder.![man-builds2.png](/static/man-builds2.png)
+ * On **Windows''', you'll download a '''.exe** file.  Double-click this file and follow the instructions.![man-intro-exe.png](/static/man-intro-exe.png)
+ * On **Linux''', make the '''.install''' file executable with '''chmod +x Shoes-3.2-stuff.install''' and run that, '''./Shoes-3.2-stuff.install** It will ask for a the admin password to create a menu entry.
 
 #### Step 2: Start a New Text File ####
 
@@ -107,9 +106,9 @@ Shoes programs are just plain text files ending with a **.rb** extension.
 
 Here are a few ways to create a blank text file:
 
- * On **Mac OS X**, visit your **Applications** folder and double-click on the **TextEdit** app.  A blank editor window should come up.  Now, go to the **Format** menu and select the **Make Plain Text** option.  Okay, you're all set!![man-editor-osx.png](/static/man-editor-osx.png)
- * On **Windows**, go to the Start menu.  Select **All Programs**, then **Accessories**, then **Notepad**.![man-editor-notepad.png](/static/man-editor-notepad.png)
- * On **Linux**, most distros come with **gedit**.  You might try running that.  Or, if your distro is KDE-based, run **kate**.
+ * On **Mac OS X''', visit your '''Applications''' folder and double-click on the '''TextEdit''' app.  A blank editor window should come up.  Now, go to the '''Format''' menu and select the '''Make Plain Text** option.  Okay, you're all set!![man-editor-osx.png](/static/man-editor-osx.png)
+ * On **Windows''', go to the Start menu.  Select '''All Programs''', then '''Accessories''', then '''Notepad**.![man-editor-notepad.png](/static/man-editor-notepad.png)
+ * On **Linux''', most distros come with '''gedit'''.  You might try running that.  Or, if your distro is KDE-based, run '''kate**.
 
 Now, in your blank window, type in the following:
 
@@ -130,8 +129,8 @@ We're going to use the **Open an App** link to browse to where you stored
 
 To run your program, start Shoes:
 
- * On **Mac OS X**, visit your **Applications** folder again.  This time, double-click the **Shoes** icon in that folder.  You should see the splash screen above. 
- * On **Windows**, get to the Start menu.  Go into **All Programs**, then **Shoes**, then **Shoes**.  You should see the splash screen above.
+ * On **Mac OS X''', visit your '''Applications''' folder again.  This time, double-click the '''Shoes** icon in that folder.  You should see the splash screen above. 
+ * On **Windows''', get to the Start menu.  Go into '''All Programs''', then '''Shoes''', then '''Shoes**.  You should see the splash screen above.
  * On **Linux**, Look for the Shoes icon in the  Programming, Education, or Others Menus. Select it.  You should see the splash screen above.
 
 So, not much of a program yet.  But it's something!  You've got the knack of it, at least!
@@ -233,8 +232,7 @@ All of the <span style="color:red">self</span>s in the above example are the App
 These instance variables will all end up inside the App object.
 
 **Whenever you create a new window, <span style="color:red">self</span> is also changed.**  So, this means
-the <span style="color:blue">window]] and [[Element.dialog</span> methods, in addition to
-Shoes.app.
+the <span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span> methods, in addition to Shoes.app.
 
 ```ruby
  Shoes.app :title => "MAIN" do
@@ -320,12 +318,12 @@ As you can imagine, the <span style="color:red">app</span> object changes <span 
 
 So the rules here are:
 
-1. **Methods named "app" or which create new windows alter <span style="color:red">self</span> to the App
-object.**[[BR]](This is true for both Shoes.app and Slot.app, as well as
-<span style="color:blue">window]] and [[Element.dialog]].)[[BR</span>
-2. **Blocks attached to stacks, flows or any manipulation method (such as
+1. '''Methods named "app" or which create new windows alter <span style="color:red">self</span> to the App
+object.'''<span style="color:blue">BR</span>(This is true for both Shoes.app and Slot.app, as well as
+<span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span>.)<span style="color:blue">BR</span>
+2. '''Blocks attached to stacks, flows or any manipulation method (such as
 append) do not change self. Instead, they pop the slot on to the app's editing
-stack.**
+stack.'''
 
 #### Careful With Fixed Heights ####
 
@@ -378,8 +376,8 @@ try a different approach.
 Most beginners start littering the window with shapes.  It's just easier to
 throw all your rectangles and ovals in a slot.
 
-**However, bear in mind that Shoes will create objects for all those
-shapes!**
+'''However, bear in mind that Shoes will create objects for all those
+shapes!'''
 
 ```ruby
  Shoes.app do
@@ -470,8 +468,8 @@ characters.  And the paragraph can be set to any UTF-8 characters.
 **Important note:** if some UTF-8 characters don't display for you, you will
 need to change the paragraph's font.  This is especially common on OS X.
 
-So, a good Japanese font on OS X is **AppleGothic** and on Windows is **MS
-UI Gothic**.
+So, a good Japanese font on OS X is **AppleGothic''' and on Windows is **MS
+UI Gothic'''.
 
 ```ruby
  Shoes.app do
@@ -502,20 +500,20 @@ so the "@@my_button in one window is a different object from a @@my_button in
 the other window (for example). Different windows, different bindings for the same name.
 
 This isolates one window from another. Some consider this a `good thing`. It's not going
-to change however,  so some say `live with it` [[https://github.com/Shoes3/shoes3/wiki/Poking-in-Shoes.app
-Poking in Shoes]] explore how to use APP[] and app but it only a starter course
+to change however,  so some say `live with it` [Poking in Shoes](https://github.com/Shoes3/shoes3/wiki/Poking-in-Shoes.app) 
+explore how to use APP[] and app but it only a starter course
 in a very long menu.
 
 For complex, multi-window Shoes apps that need to share some things and not
 others it's still unknown best practices. There might be more information
-in [[Structuring]] or on the wiki.
+in <span style="color:blue">Structuring</span> or on the wiki.
 
 
 #Shoes#
 
 Shoes is all about drawing windows and the stuff inside those windows.  Let's
-focus on the window itself, for now.  The other sections [[Slots]] and
-<span style="color:blue"></span> cover everything that goes inside the window.
+focus on the window itself, for now.  The other sections <span style="color:blue">Slots</span> and
+<span style="color:blue">Elements</span> cover everything that goes inside the window.
 
 For here on, the manual reads more like a dictionary. Each page is mostly a
 list of methods you can use for each topic covered. The idea is to be very
@@ -523,8 +521,8 @@ thorough and clear about everything.
 
 So, if you've hit this far in the manual and you're still hazy about getting
 started, you should probably either go back to the [beginning](Hello!) of the
-manual. Or you could try [[https://github.com/downloads/shoes/shoes/nks.pdf Nobody Knows
-Shoes]], the beginner's leaflet PDF.
+manual. Or you could try [Nobody Knows Shoes](https://github.com/downloads/shoes/shoes/nks.pdf), 
+the beginner's leaflet PDF.
 
 #### Finding Your Way ####
 
@@ -534,18 +532,18 @@ This section covers:
  * [The App window](App) - methods found attached to every main Shoes window.
  * [The Styles Master List](Styles) - a complete list of every style in Shoes.
  * [The Classes list](Classes) - a chart showing what Shoes classes subclass what.
- * [The Colors list](Colors) - a chart of all built-in colors and the [[Built-in.rgb]] numbers for each.
+ * [The Colors list](Colors) - a chart of all built-in colors and the <span style="color:blue">Built-in.rgb</span> numbers for each.
  * [Specialized methods](Special) - oddities that don't really fit App or Built-in
 
 If you find yourself paging around a lot and not finding something, give the
-[[Search]] page a try. It's the quickest way to get around.
+<span style="color:blue">Search</span> page a try. It's the quickest way to get around.
 
 After this general reference, there are two other more specific sections:
 
- * [- covering <span style="color:blue">stack](Slots]]) and [[Element.flow</span>, the two types of slots.
- * <span style="color:blue"></span> - documentation for all the buttons, shapes, images, and so on.
+ * <span style="color:blue">Slots</span> - covering <span style="color:blue">Element.stack</span> and <span style="color:blue">Element.flow</span>, the two types of slots.
+ * <span style="color:blue">Elements</span> - documentation for all the buttons, shapes, images, and so on.
 
-Two really important pages in there are the <span style="color:blue">Element Creation</span> page
+Two really important pages in there are the [Element Creation](Element) page
 (which lists all the elements you can add) and the [Common Methods](Common)
 page (which lists methods you'll find on any slot or element.)
 
@@ -560,7 +558,6 @@ But these are built-in methods (also called: Kernel methods.) Which means no dot
 A common one is <span style="color:red">alert</span>:
 
 ```ruby
- 
  alert "No dots in sight"
 ```
 
@@ -568,7 +565,6 @@ Compare that to the method <span style="color:red">reverse</span>, which isn't a
 available for Arrays and Strings:
 
 ```ruby
- 
  "Plaster of Paris".reverse
   #=> "siraP fo retsalP"
  [:dogs, :cows, :snakes].reverse
@@ -576,7 +572,7 @@ available for Arrays and Strings:
 ```
 
 Most Shoes methods for drawing and making buttons and so on are attached to
-slots.  See the section on [[Slots]] for more.
+slots.  See the section on <span style="color:blue">Slots</span> for more.
 
 #### Built-in Constants ####
 
@@ -601,10 +597,10 @@ could have been set to some other number by the builder.
 **Shoes::VERSION_DATE** is a string. It's the build date.
 
 **Shoes::VERSION_PLATFORM** is a string. It's probably the platform your
-Shoes was built on which **is not the same** as **RUBY_PLATFORM**
+Shoes was built on which **is not the same''' as '''RUBY_PLATFORM**
 
 **Shoes::FONTS** is a complete list of fonts available to the app.  This list
-includes any fonts loaded by the [[Built-in.font]] method.
+includes any fonts loaded by the <span style="color:blue">Built-in.font</span> method.
 
 Deprecated constants:
 
@@ -623,25 +619,22 @@ Shoes::REVISION is the Subversion revision number for this build.
 Pops up a window containing a short message.
 
 ```ruby
- 
  alert("I'm afraid I must interject!")
 ```
 
 `:title` is optional and replaces the default "Shoes says:" with the string you provide or could be set to <span style="color:red">nil</span> in which case the window won't have a title at all.
 
 ```ruby
- 
  alert("I'm afraid I must interject!", :title => "Sorry but :")
 ```
 
 ```ruby
- 
  alert("I'm afraid I must interject!", :title => nil)
 ```
 
 Please use alerts sparingly, as they are incredibly annoying!  If you are using
 alerts to show messages to help you debug your program, try checking out the
-[or [[Built-in.info](Built-in.debug]]) methods.
+<span style="color:blue">Built-in.debug</span> or <span style="color:blue">Built-in.info</span> methods.
 
 ### ask(message: a string, :title => a string or nil) » a string ###
 
@@ -649,7 +642,6 @@ Pops up a window and asks a question. For example, you may want to ask someone
 their name.
 
 ```ruby
- 
  name = ask("Please, enter your name:")
 ```
 
@@ -658,7 +650,7 @@ a blank box for entering their name. The name will then be saved in the <span st
 variable.
 
 `:title` is optional and replace the default "Shoes asks:" with the string you provide or could be set to <span style="color:red">nil</span> in which case the window won't have a title at all.
-See [[Built-in.alert]] method for similar examples.
+See <span style="color:blue">Built-in.alert</span> method for similar examples.
 
 ### ask_color(title: a string) » Shoes::Color ###
 
@@ -667,7 +659,6 @@ then gives you back a Color object. See the <span style="color:red">Color</span>
 use this color.
 
 ```ruby
- 
  backcolor = ask_color("Pick a background")
  Shoes.app do
   background backcolor
@@ -681,7 +672,6 @@ your folders and lets you select a file to open. Hands you back the name of the
 file.
 
 ```ruby
- 
  filename = ask_open_file
  Shoes.app do
    para File.read(filename)
@@ -694,7 +684,6 @@ Pops up a "Save file..." window, similiar to <span style="color:red">ask_open_fi
 previously.
 
 ```ruby
- 
  save_as = ask_save_file
 ```
 
@@ -705,7 +694,6 @@ your folders and lets you select a folder to open. Hands you back the name of
 the folder.
 
 ```ruby
- 
  folder = ask_open_folder
  Shoes.app do
    para Dir.entries(folder)
@@ -719,7 +707,6 @@ previously. On OS X, this method currently behaves like an alias of
 <span style="color:red">ask_open_folder</span>.
 
 ```ruby
- 
  save_to = ask_save_folder
 ```
 
@@ -730,14 +717,13 @@ Pops up a yes-or-no question. If the person at the computer, clicks **yes**,
 you'll get back a <span style="color:red">true</span>. If not, you'll get back <span style="color:red">false</span>.
 
 ```ruby
- 
  if confirm("Draw a circle?")
   Shoes.app{ oval :top => 0, :left => 0, :radius => 50 }
  end
 ```
           
 `:title` is optional and replace the default "Shoes asks:" with the string you provide or could be set to <span style="color:red">nil</span> in which case the window won't have a title at all.
-See [[Built-in.alert]] method for similar examples.
+See <span style="color:blue">Built-in.alert</span> method for similar examples.
 
 ### debug(message: a string) » nil ###
 
@@ -745,17 +731,16 @@ Sends a debug message to the Shoes console.  You can bring up the Shoes console
 by pressing `Alt-/` on any Shoes window (or `⌘-/` on OS X.)
 
 ```ruby
- 
  debug("Running Shoes on " + RUBY_PLATFORM)
 ```
 
-Also check out the [[[Built-in.warn](Built-in.error]],) and [[Built-in.info]]
+Also check out the <span style="color:blue">Built-in.error</span>, <span style="color:blue">Built-in.warn</span> and <span style="color:blue">Built-in.info</span>
 methods.
 
 ### error(message: a string) » nil ###
 
 Sends an error message to the Shoes console.  This method should only be used
-to log errors.  Try the [[Built-in.debug]] method for logging messages to
+to log errors.  Try the <span style="color:blue">Built-in.debug</span> method for logging messages to
 yourself.
 
 Oh, and, rather than a string, you may also hand exceptions directly to this
@@ -828,7 +813,6 @@ debug messages are designed to help the program figure out what's happening,
 
 ```ruby
  
- 
  info("You just ran the info example on Shoes #{Shoes::RELEASE_NAME}.")
 ```
 
@@ -859,7 +843,7 @@ This method may also be called as `Shoes.rgb`.
 ### warn(message: a string) » nil ###
 
 Logs a warning for the user.  A warning is not a catastrophic error (see
-[[Built-in.error]] for that.)  It is just a notice that the program will be
+<span style="color:blue">Built-in.error</span> for that.)  It is just a notice that the program will be
 changing in the future or that certain parts of the program aren't reliable
 yet.
 
@@ -888,7 +872,6 @@ describe how big the window is.  Perhaps also the name of the app or if it's
 resizable.
 
 ```ruby
- 
  Shoes.app(:title => "White Circle",
    :width => 200, :height => 200, :resizable => false) {
      background black
@@ -901,9 +884,9 @@ In the case above, a small window is built.  200 pixels by 200 pixels.  It's
 not resizable.  And, inside the window, two elements: a black background and a
 white circle.
 
-Once an app is created, it is added to the [[App.Shoes.APPS]] list.  If you
-want an app to spawn more windows, see the <span style="color:blue">window</span> method and the
-<span style="color:blue">dialog</span> method.
+Once an app is created, it is added to the <span style="color:blue">App.Shoes.APPS</span> list.  If you
+want an app to spawn more windows, see the <span style="color:blue">Element.window</span> method and the
+<span style="color:blue">Element.dialog</span> method.
 
 ### Shoes.APPS() » An array of Shoes::App objects ###
 
@@ -937,7 +920,6 @@ events.  You can send the download to a file or just get back a string (in the
 If you attach a block to a download, it'll get called as the <span style="color:red">finish</span> event.
 
 ```ruby
- 
  Shoes.app do
    stack do
      title "Searching Google", :size => 16
@@ -959,7 +941,6 @@ Another simple use of <span style="color:red">download</span> is to save some we
 `:save` style.
 
 ```ruby
- 
  Shoes.app do
    stack do
      title "Downloading Google image", :size => 16
@@ -983,7 +964,6 @@ the `:method`, `:headers` and `:body` styles to customize the HTTP request.
 class.)
 
 ```ruby
- 
  Shoes.app do
    stack do
      title "GET Google", :size => 16
@@ -1010,7 +990,6 @@ Identifies the mouse cursor's location, along with which button is being
 pressed.
 
 ```ruby
- 
  Shoes.app do
    @p = para
    animate do
@@ -1023,7 +1002,7 @@ pressed.
 ### owner() » Shoes::App ###
 
 Gets the app which launched this app.  In most cases, this will be <span style="color:red">nil</span>.  But
-if this app was launched using the <span style="color:blue">window</span> method, the owner will be
+if this app was launched using the <span style="color:blue">Element.window</span> method, the owner will be
 the app which called <span style="color:red">window</span>.
 
 ### started?() » true or false ###
@@ -1057,7 +1036,7 @@ Styles are easy to spot.  They usually show up when the element is created.
 Here we've got a `:title` style on the app.  And on the paragraph inside the
 app, a red `:stroke` style and an `:underline` style.
 
-The style hash can also be changed by using the [[Common.style]] method,
+The style hash can also be changed by using the <span style="color:blue">Common.style</span> method,
 available on every element and slot.
 
 ```ruby
@@ -1134,7 +1113,7 @@ element so that its bottom edge and the bottom edge of its slot touch.
 For: ''arc, arrow, border, flow, image, mask, rect, star, shape, stack''.
 
 Sets the shape of the line endpoint, whether curved or square.  See the
-[[Art.cap]] method for more explanation.
+<span style="color:blue">Art.cap</span> method for more explanation.
 
 ### :center » true or false ###
 
@@ -1142,13 +1121,13 @@ For: ''arc, image, oval, rect, shape''.
 
 Indicates whether the `:top` and `:left` coordinates refer to the center of the
 shape or not.  If set to <span style="color:red">true</span>, this is similar to setting the
-[[Art.transform]] method to `:center`.
+<span style="color:blue">Art.transform</span> method to `:center`.
 
 ### :change » a proc ###
 
 For: ''edit_box, edit_line, list_box''.
 
-The <span style="color:red">change</span> event handler is stored in this style.  See the [[EditBox.change]]
+The <span style="color:red">change</span> event handler is stored in this style.  See the <span style="color:blue">EditBox.change</span>
 method for the edit_box, as an example.
 
 ### :finish » a proc ###
@@ -1156,21 +1135,21 @@ method for the edit_box, as an example.
 For: ''edit_line''.
 
 The <span style="color:red">finish</span> handler is called (if set) when the user presses the Enter
-or Return key in an edit_line.  See [[EditLine.finish]]
+or Return key in an edit_line.  See <span style="color:blue">EditLine.finish</span>
 
 ### :checked » true or false ###
 
 For: ''check, radio''.
 
 Is this checkbox or radio button checked?  If set to <span style="color:red">true</span>, the box is
-checked.  Also see the [[Check.checked=]] method.
+checked.  Also see the <span style="color:blue">Check.checked=</span> method.
 
 ### :choose » a string ###
 
 For: ''list_box''.
 
 Sets the currently chosen item in the list.  More information at
-[[ListBox.choose]].
+<span style="color:blue">ListBox.choose</span>.
 
 ### :click » a proc ###
 
@@ -1178,7 +1157,7 @@ For: ''arc, arrow, banner, button, caption, check, flow, image, inscription,
 line, link, mask, oval, para, radio, rect, shape, stack, star, subtitle,
 tagline, title''.
 
-The <span style="color:red">click</span> event handler is stored in this style.  See the [[Events.click]]
+The <span style="color:red">click</span> event handler is stored in this style.  See the <span style="color:blue">Events.click</span>
 method for a description.
 
 ### :curve » a number ###
@@ -1197,7 +1176,7 @@ Moves a shape, text block or any other kind of object to the left or right.  A
 positive number displaces to the right by the given number of pixels; a
 negative number displaces to the left.  Displacing an object doesn't effect the
 actual layout of the page.  Before using this style, be sure to read the
-[[Position.displace]] docs, since its behavior can be a bit surprising.
+<span style="color:blue">Position.displace</span> docs, since its behavior can be a bit surprising.
 
 ### :displace_top » a number ###
 
@@ -1206,7 +1185,7 @@ For: ''all slots and elements''.
 Moves a shape, text block or any other kind of object up or down.  A positive
 number moves the object down by this number of pixels; a negative number moves
 it up.  Displacing doesn't effect the actual layout of the page or the object's
-true coordinates.  Read the [[Position.displace]] docs, since its behavior can
+true coordinates.  Read the <span style="color:blue">Position.displace</span> docs, since its behavior can
 be a bit surprising.
 
 ### :emphasis » a string ###
@@ -1297,7 +1276,7 @@ circle within the star where the points begin to separate.
 
 For: ''list_box''.
 
-The list of selections in the list box.  See the <span style="color:blue">list_box</span> method
+The list of selections in the list box.  See the <span style="color:blue">Element.list_box</span> method
 for an example.
 
 ### :justify » true or false ###
@@ -1405,7 +1384,7 @@ For: ''banner, caption, code, del, em, ins, inscription, link, para, span,
 strong, sub, sup, subtitle, tagline, title''.
 
 Lifts or plunges the font baseline for some text.  For example, a
-<span style="color:blue">sup]] has a `:rise` of 10 pixels.  Conversely, the [[Element.sub</span>
+<span style="color:blue">Element.sup</span> has a `:rise` of 10 pixels.  Conversely, the <span style="color:blue">Element.sub</span>
 element has a `:rise` of -10 pixels.
 
 ### :scroll » true or false ###
@@ -1607,7 +1586,7 @@ from the X11 and HTML palettes.
 
 All of these colors can be used by name.  (So calling the <span style="color:red">tomato</span> method from
 inside any slot will get you a nice reddish color.)  Below each color, also
-find the exact numbers which can be used with the [[Built-in.rgb]] method.
+find the exact numbers which can be used with the <span style="color:blue">Built-in.rgb</span> method.
 
 {COLORS}
 
@@ -1638,7 +1617,7 @@ placed directly under the element preceding it.
 A stack is also shaped like a box. So if a stack is given a width of 250, that
 stack is itself an element which is 250 pixels wide.
 
-To create a new stack, use the <span style="color:blue">stack</span> method, which is available
+To create a new stack, use the <span style="color:blue">Element.stack</span> method, which is available
 inside any slot.  So stacks can contain other stacks and flows.
 
 #### Flows ####
@@ -1651,7 +1630,7 @@ Like the stack, a flow is a box. So stacks and flows can safely be embedded
 and, without respect to their contents, are identical. They just treat their
 contents differently.
 
-Making a flow means calling the <span style="color:blue">flow</span> method.  Flows may contain
+Making a flow means calling the <span style="color:blue">Element.flow</span> method.  Flows may contain
 other flows and stacks.
 
 Last thing: The Shoes window itself is a flow.
@@ -1668,7 +1647,6 @@ The <span style="color:red">stroke</span> command sets the line color.  And the 
 color used to paint inside the lines.
 
 ```ruby
- 
  Shoes.app do
    stroke red
    fill blue
@@ -1701,7 +1679,7 @@ closely consult Processing's methods as it expands.
 ### arc(left, top, width, height, angle1, angle2) » Shoes::Shape ###
 
 Draws an arc shape (a section of an oval) at coordinates (left, top).  This
-method just give you a bit more control than [[Art.oval]], by offering the
+method just give you a bit more control than <span style="color:blue">Art.oval</span>, by offering the
 `:angle1` and `:angle2` styles.  (In fact, you can mimick the <span style="color:red">oval</span> method by
 setting `:angle1` to 0 and `:angle2` to `Shoes::TWO_PI`.)
 
@@ -1724,7 +1702,6 @@ they will be colored in with the pattern you've chosen.
 To draw a star with an image pattern:
 
 ```ruby
- 
  Shoes.app do
    fill "#{DIR}/static/avatar.png"
    star 200, 200, 5
@@ -1754,11 +1731,10 @@ coordinates (left, top) and ending at coordinates (x2, y2).
 Draws a circular form at pixel coordinates (left, top) with a width and height
 of <span style="color:red">radius</span> pixels.  The line and fill colors are used to draw the shape.  By
 default, the coordinates are for the oval's leftmost, top corner, but this can
-be changed by calling the [[Art.transform]] method or by using the `:center`
+be changed by calling the <span style="color:blue">Art.transform</span> method or by using the `:center`
 style on the next method below.
 
 ```ruby
- 
  Shoes.app do
    stroke blue
    strokewidth 4
@@ -1791,7 +1767,6 @@ fifth argument: the radius of the corners in pixels.
 As with all other shapes, the rectangle is drawn using the stroke and fill colors.
 
 ```ruby
- 
  Shoes.app do
    stroke rgb(0.5, 0.5, 0.7)
    fill rgb(1.0, 1.0, 0.9)
@@ -1824,7 +1799,6 @@ shapes will be drawn at that angle.
 In this example below, the rectangle drawn at (30, 30) will be rotated 45 degrees.
 
 ```ruby
- 
  Shoes.app do
    fill "#333"
    rotate 45
@@ -1840,7 +1814,6 @@ Second argument is optional, in which case scaling will be the same in both dire
 0.5 means scaling to half the size, 2.0 doubles the size.
 
 ```ruby
- 
  Shoes.app do
    nofill
    rect 30, 30, 100, 100, stroke: red
@@ -1856,7 +1829,6 @@ Skews the pen used for drawing by sx an sy in width and height respectively, so 
 Second argument is optional, in which case skew happens only horizontally.
 
 ```ruby
- 
  Shoes.app do
    fill "#333"
    skew 7.5, 9.5
@@ -1872,7 +1844,6 @@ block.  You can look at it as sketching a shape with a long line that curves
 and arcs and bends.
 
 ```ruby
- 
  Shoes.app do
    fill red(0.2)
    shape do
@@ -1885,9 +1856,9 @@ and arcs and bends.
  end
 ```
 
-A shape can also contain other shapes.  So, you can place an [[Art.oval]], a
-[a [[Art.line](Art.rect]],), a [or an [[Art.arrow](Art.star]]) (and all of
-the other methods in this [[Art]] section) inside a shape, but they will not be
+A shape can also contain other shapes.  So, you can place an <span style="color:blue">Art.oval</span>, a
+<span style="color:blue">Art.rect</span>, a <span style="color:blue">Art.line</span>, a <span style="color:blue">Art.star</span> or an <span style="color:blue">Art.arrow</span> (and all of
+the other methods in this <span style="color:blue">Art</span> section) inside a shape, but they will not be
 part of the line.  They will be more like a group of shapes are all drawn as
 one.
 
@@ -1921,7 +1892,6 @@ color is then used to draw the borders of any subsequent shape.
 So, to draw an arrow with a red line around it:
 
 ```ruby
- 
  Shoes.app do
    stroke red
    arrow 0, 100, 10
@@ -1966,7 +1936,6 @@ The block is given a <span style="color:red">frame</span> number.  Starting with
 tells the block how many frames of the animation have been shown.
 
 ```ruby
- 
  Shoes.app do
    @counter = para "STARTING"
    animate(24) do |frame|
@@ -1989,7 +1958,6 @@ backgrounds like styles.  Which means every box can only have one background.
 Shoes layers background elements.
 
 ```ruby
- 
  Shoes.app do
    background black
    background white, :width => 50
@@ -2039,7 +2007,7 @@ single strikethrough in its middle.
 
 ### dialog(styles) { ... } » Shoes::App ###
 
-Opens a new app window (just like the <span style="color:blue">window</span> method does,) but the
+Opens a new app window (just like the <span style="color:blue">Element.window</span> method does,) but the
 window is given a dialog box look.
 
 ### edit_box(text) » Shoes::EditBox ###
@@ -2049,7 +2017,6 @@ should be a string that will start out the box.  An optional block can be
 attached here which is called any type the user changes the text in the box.
 
 ```ruby
- 
  Shoes.app do
    edit_box
    edit_box "HORRAY EDIT ME"
@@ -2078,16 +2045,16 @@ block containing the code to actually ping the web site.
 ### flow(styles) { ... } » Shoes::Flow ###
 
 A flow is an invisible box (or "slot") in which you place Shoes elements.  Both
-flows and stacks are explained in great detail on the main [[Slots]] page.
+flows and stacks are explained in great detail on the main <span style="color:blue">Slots</span> page.
 
-Flows organize elements horizontally.  Where one would use a <span style="color:blue">stack</span>
+Flows organize elements horizontally.  Where one would use a <span style="color:blue">Element.stack</span>
 to keep things stacked vertically, a flow places its contents end-to-end across
 the page.  Once the end of the page is reached, the flow starts a new line of
 elements.
 
 ### image(path) » Shoes::Image ###
 
-Creates an [[Image]] element for displaying a picture.  PNG, JPEG and GIF
+Creates an <span style="color:blue">Image</span> element for displaying a picture.  PNG, JPEG and GIF
 formats are allowed.
 
 The <span style="color:red">path</span> can be a file path or a URL.  All images loaded are temporarily
@@ -2127,7 +2094,6 @@ array.  An optional block may be attached, which is called if anything in the
 box becomes selected by the user.
 
 ```ruby
- 
  Shoes.app do
    stack :margin => 10 do
      para "Pick a card:"
@@ -2161,7 +2127,7 @@ Creates a Span text fragment, unstyled by default.
 
 ### stack(styles) { ... } » Shoes::Stack ###
 
-Creates a new stack.  A stack is a type of slot.  (See the main [[Slots]] page
+Creates a new stack.  A stack is a type of slot.  (See the main <span style="color:blue">Slots</span> page
 for a full explanation of both stacks and flows.)
 
 In short, stacks are an invisible box (a "slot") for placing stuff.  As you add
@@ -2198,7 +2164,6 @@ A one-shot timer.  If you want to schedule to run some code in a few seconds
 To display an alert box five seconds from now:
 
 ```ruby
- 
  Shoes.app do
    timer(5) do
      alert("Your five seconds are up.")
@@ -2217,15 +2182,14 @@ Embeds a movie in this slot.
 ### window(styles) { ... } » Shoes::App ###
 
 Opens a new app window.  This method is almost identical to the
-[[App.Shoes.app]] method used to start an app in the first place.  The
-difference is that the <span style="color:red">window</span> method sets the new window's [[App.owner]]
+<span style="color:blue">App.Shoes.app</span> method used to start an app in the first place.  The
+difference is that the <span style="color:red">window</span> method sets the new window's <span style="color:blue">App.owner</span>
 property.  (A normal Shoes.app has its <span style="color:red">owner</span> set to <span style="color:red">nil</span>.)
 
 So, the new window's <span style="color:red">owner</span> will be set to the Shoes::App which launched the
 window.  This way the child window can call the parent.
 
 ```ruby
- 
  Shoes.app :title => "The Owner" do
    button "Pop up?" do
      window do
@@ -2252,7 +2216,6 @@ mouse comes inside the slot.  And <span style="color:red">leave</span> to change
 away.
 
 ```ruby
- 
  Shoes.app do
    s #stack :width => 200, :height#> 200 do
      background red
@@ -2272,7 +2235,7 @@ The click block is called when a mouse button is clicked.  The <span style="colo
 number of the mouse button which has been pressed.  The <span style="color:red">left</span> and <span style="color:red">top</span> are
 the mouse coordinates at which the click happened.
 
-To catch the moment when the mouse is unclicked, see the [[Events.release]] event.
+To catch the moment when the mouse is unclicked, see the <span style="color:blue">Events.release</span> event.
 
 ### finish { |self| ... } » self ###
 
@@ -2284,14 +2247,13 @@ immediately handed <span style="color:red">self</span>, the slot object which ha
 The hover event happens when the mouse enters the slot.  The block gets <span style="color:red">self</span>,
 meaning the object which was hovered over.
 
-To catch the mouse exiting the slot, check out the [[Events.leave]] event.
+To catch the mouse exiting the slot, check out the <span style="color:blue">Events.leave</span> event.
 
 ### keydown { |key| ... } » self ###
 
-Triggered whenever a single key is pressed, the block gets called. The block is sent a key which is a string representing the character (such as the letter or number) on the key.  For special keys (not modifiers keys), a Ruby symbol is sent, rather than a string, see [[Events.keypress]] for a list of special keys.
+Triggered whenever a single key is pressed, the block gets called. The block is sent a key which is a string representing the character (such as the letter or number) on the key.  For special keys (not modifiers keys), a Ruby symbol is sent, rather than a string, see <span style="color:blue">Events.keypress</span> for a list of special keys.
 
 ```ruby
- 
  Shoes.app {
    @info = para "Press a key."
    keydown do |k|
@@ -2302,10 +2264,9 @@ Triggered whenever a single key is pressed, the block gets called. The block is 
 
 ### keyup { |key| ... } » self ###
 
-Triggered whenever a single key is released, the block gets called. The block is sent a key which is a string representing the character (such as the letter or number) on the key.  For special keys (not modifiers keys), a Ruby symbol is sent, rather than a string, see [[Events.keypress]] for a list of special keys.
+Triggered whenever a single key is released, the block gets called. The block is sent a key which is a string representing the character (such as the letter or number) on the key.  For special keys (not modifiers keys), a Ruby symbol is sent, rather than a string, see <span style="color:blue">Events.keypress</span> for a list of special keys.
 
 ```ruby
- 
  Shoes.app {
    @info = para "Press a key and release it."
    keyup do |k|
@@ -2337,7 +2298,6 @@ get the symbol: `:alt_&`.  You'll only see the shift modifier on the special
 keys listed a few paragraphs down.
 
 ```ruby
- 
  Shoes.app do
    @info = para "NO KEY is PRESSED."
    keypress do |k|
@@ -2364,7 +2324,7 @@ The leave event takes place when the mouse cursor exits a slot.  The moment it
 no longer is inside the slot's edges.  When that takes place, the block is
 called with <span style="color:red">self</span>, the slot object which is being left.
 
-Also see [[Events.hover]] if you'd like to detect the mouse entering a slot.
+Also see <span style="color:blue">Events.hover</span> if you'd like to detect the mouse entering a slot.
 
 ### motion { |left, top| ... } » self ###
 
@@ -2372,7 +2332,6 @@ The motion block gets called every time the mouse moves around inside the slot.
 The block is handed the cursor's <span style="color:red">left</span> and <span style="color:red">top</span> coordinates.
 
 ```ruby
- 
  Shoes.app :width => 200, :height => 200 do
    background black
    fill white
@@ -2391,7 +2350,7 @@ finger is lifted.  The <span style="color:red">button</span> is the number of th
 The <span style="color:red">left</span> and <span style="color:red">top</span> are the coordinates of the mouse at the time the button
 was released.
 
-To catch the actual mouse click, use the [[Events.click]] event.
+To catch the actual mouse click, use the <span style="color:blue">Events.click</span> event.
 
 ### start { |self| ... } » self ###
 
@@ -2408,7 +2367,6 @@ inserting new elements.
 Adds elements to the end of a slot.
 
 ```ruby
- 
  Shoes.app do
    @slot = stack { para 'Good Morning' }
    timer 3 do
@@ -2444,7 +2402,6 @@ The clear method also takes an optional block.  The block will be used to
 replace the contents of the slot.
 
 ```ruby
- 
  Shoes.app do
    @slot = stack { para "Old text" }
    timer 3 do
@@ -2461,7 +2418,6 @@ In this example, the "Old text" paragraph will be cleared out, replaced by the
 Adds elements to the beginning of a slot.
 
 ```ruby
- 
  Shoes.app do
    @slot = stack { para 'Good Morning' }
    timer 3 do
@@ -2479,7 +2435,6 @@ Like any other element, slots can be styled and customized when they are created
 To set the width of a stack to 150 pixels:
 
 ```ruby
- 
  Shoes.app do
    stack(:width => 150) { para "Now that's precision." }
  end
@@ -2511,7 +2466,6 @@ cover.
 This is commonly used to pad elements on the right, like so:
 
 ```ruby
- 
  Shoes.app do
    stack :margin_right => 20 + gutter do
      para "Insert fat and ratified declaration of independence here..."
@@ -2526,7 +2480,7 @@ slot, you'll need to use `scroll_height()` to get the full size of the slot.
 
 ### hide() » self ###
 
-Hides the slot, so that it can't be seen.  See also [and [[Position.toggle](Position.show]]).
+Hides the slot, so that it can't be seen.  See also <span style="color:blue">Position.show</span> and <span style="color:blue">Position.toggle</span>.
 
 ### left() » a number ###
 
@@ -2552,7 +2506,7 @@ only appear if the height of the slot is also fixed.
 Establishes this slot as a scrolling slot.  If `scroll = true` is set, the
 slot will show a scrollbar if any of its contents go past its height.  The
 scrollbar will appear and disappear as needed.
-See also the [[Styles.scroll]] style.
+See also the <span style="color:blue">Styles.scroll</span> style.
 
 ### scroll_height() » a number ###
 
@@ -2581,8 +2535,8 @@ Scrolls the slot to a certain coordinate.  This must be between zero and
 
 ### show() » self ###
 
-Reveals the slot, if it is hidden.  See also [[Position.hide]] and
-[[Position.toggle]].
+Reveals the slot, if it is hidden.  See also <span style="color:blue">Position.hide</span> and
+<span style="color:blue">Position.toggle</span>.
 
 ### style() » styles ###
 
@@ -2594,7 +2548,6 @@ the slot, you can use `style[:height]` or `style[:width]` to get the dimensions
 originally requested.
 
 ```ruby
- 
  Shoes.app do
    @s #stack :width#> "100%"
    para @s.style[:width]
@@ -2610,7 +2563,6 @@ Alter the slot using a hash of style settings.  Any of the methods on this page
 example, there is a <span style="color:red">width</span> method, thus there is also a <span style="color:red">width</span> style.
 
 ```ruby
- 
  Shoes.app do
    @s = stack { background green }
    @s.style(:width => 400, :height => 200)
@@ -2680,10 +2632,9 @@ hiding.  Removing an element.  Basic and very general things.  This list
 encompasses those common commands.
 
 One of the most general methods of all is the <span style="color:red">style</span> method (which is also
-covered as the [[Position.style]] method for slots.)
+covered as the <span style="color:blue">Position.style</span> method for slots.)
 
 ```ruby
- 
  Shoes.app do
    stack do
      # Background, text and a button: both are elements!
@@ -2700,7 +2651,7 @@ covered as the [[Position.style]] method for slots.)
 ```
 
 For specific commands, see the other links to the left in the Elements section.
-Like if you want to pause or play a video file, check the [[Video]] section,
+Like if you want to pause or play a video file, check the <span style="color:blue">Video</span> section,
 since pausing and playing is peculiar to videos.  No sense pausing a button.
 
 ### displace(left: a number, top: a number) » self ###
@@ -2716,7 +2667,6 @@ displace it 2 pixels left and 6 pixels on top, you end up with the coordinates
 (22, 46).
 
 ```ruby
- 
  Shoes.app do
    flow :margin => 12 do
      # Set up three buttons
@@ -2735,7 +2685,7 @@ displace it 2 pixels left and 6 pixels on top, you end up with the coordinates
 Notice that while the second button bounces, the other two buttons stay put.
 If we used a normal <span style="color:red">move</span> in this situation, the second button would be moved
 out of the layout and the buttons would act as if the second button wasn't
-there at all.  (See the [[Common.move]] example.)
+there at all.  (See the <span style="color:blue">Common.move</span> example.)
 
 **Of particular note:** if you use the <span style="color:red">left</span> and <span style="color:red">top</span> methods to get the
 coordinates of a displaced element, you'll just get back the normal
@@ -2751,12 +2701,12 @@ shown right now.
 If you have a 150x150 pixel image and you set the width to 50 pixels, this
 method will return 50.
 
-Also see the [[Common.width]] method for an example and some other comments.
+Also see the <span style="color:blue">Common.width</span> method for an example and some other comments.
 
 ### hide() » self ###
 
-Hides the element, so that it can't be seen.  See also [[Common.show]] and
-[[Common.toggle]].
+Hides the element, so that it can't be seen.  See also <span style="color:blue">Common.show</span> and
+<span style="color:blue">Common.toggle</span>.
 
 ### left() » a number ###
 
@@ -2770,7 +2720,6 @@ other stuff in the slot.  The element will float freely, now absolutely
 positioned instead.
 
 ```ruby
- 
  Shoes.app do
    flow :margin => 12 do
      # Set up three buttons
@@ -2788,12 +2737,12 @@ positioned instead.
 
 The second button is moved to a specific place, allowing the third button to
 slide over into its place.  If you want to move an element without shifting
-other pieces, see the [[Common.displace]] method.
+other pieces, see the <span style="color:blue">Common.displace</span> method.
 
 ### parent() » a Shoes::Stack or Shoes::Flow ###
 
 Gets the object for this element's container.  Also see the slot's
-[[Traversing.contents]] to do the opposite: get a container's elements.
+<span style="color:blue">Traversing.contents</span> to do the opposite: get a container's elements.
 
 ### remove() » self ###
 
@@ -2802,8 +2751,8 @@ The element will no longer be displayed.
 
 ### show() » self ###
 
-Reveals the element, if it is hidden.  See also [[Common.hide]] and
-[[Common.toggle]].
+Reveals the element, if it is hidden.  See also <span style="color:blue">Common.hide</span> and
+<span style="color:blue">Common.toggle</span>.
 
 ### style() » styles ###
 
@@ -2813,7 +2762,6 @@ pixel dimensions, using `style[:width]` or `style[:top]`, you can get the
 original setting (things like "100%" for width or "10px" for top.)
 
 ```ruby
- 
  Shoes.app do
    # A button which take up the whole page
    @b #button "All of it", :width => 1.0, :height#> 1.0
@@ -2841,7 +2789,7 @@ Gets the pixel position of the top edge of the element.
 
 Gets the pixel width for the full size of the element.  This method always
 returns an exact pixel size.  In the case of images, this is not the full width
-of the image, just the size it is shown at.  See the [[Common.height]] method
+of the image, just the size it is shown at.  See the <span style="color:blue">Common.height</span> method
 for more.
 
 Also, if you create an element with a width of 100% and that element is inside
@@ -2849,7 +2797,6 @@ a stack which is 120 pixels wide, you'll get back <span style="color:red">120</s
 `style[:width]`, you'll get `"100%"`.
 
 ```ruby
- 
  Shoes.app do
    stack :width => 120 do
      @b #button "Click me", :width#> "100%" do
@@ -2860,7 +2807,7 @@ a stack which is 120 pixels wide, you'll get back <span style="color:red">120</s
  end
 ```
 
-In order to set the width, you'll have to go through the [[Common.style]]
+In order to set the width, you'll have to go through the <span style="color:blue">Common.style</span>
 method again.  So, to set the button to 150 pixels wide: `@b.style(:width =>
 150)`.
 
@@ -2879,10 +2826,9 @@ the slot (like a <span style="color:red">rect</span> or an <span style="color:re
 element.
 
 The simplest background is just a plain color background, created with the
-<span style="color:blue">background</span> method, such as this black background:
+<span style="color:blue">Element.background</span> method, such as this black background:
 
 ```ruby
- 
  Shoes.app do
    background black
  end
@@ -2896,7 +2842,6 @@ You can use styles to cut down the size or move around the background to your li
 To paint a black background across the top fifty pixels of the window:
 
 ```ruby
- 
  Shoes.app do
    background black, :height => 50
  end
@@ -2905,14 +2850,13 @@ To paint a black background across the top fifty pixels of the window:
 Or, to paint a fifty pixel column on the right-side of the window:
 
 ```ruby
- 
  Shoes.app do
    background black, :width => 50, :right => 50
  end
 ```
 
 Since Backgrounds are normal elements as well, see also the start of the
-<span style="color:blue"></span> section for all of its other methods.
+<span style="color:blue">Elements</span> section for all of its other methods.
 
 ### to_pattern() » a Shoes::Pattern ###
 
@@ -2932,17 +2876,16 @@ which is fifty pixels wide and you paint a five pixel border on it, that means
 there is a fourty pixel wide area inside the slot which is surrounded by the
 border.
 
-This also means that if you paint a Border on top of a [[Background]], the
+This also means that if you paint a Border on top of a <span style="color:blue">Background</span>, the
 edges of the background will be painted over by the border.
 
 Here is just such a slot:
 
 ```ruby
- 
  Shoes.app do
    stack :width => 50 do
      border black, :strokewidth => 5
-     para "=^.^=", :stroke => green
+     para "=.=", :stroke => green
    end
  end
 ```
@@ -2951,12 +2894,11 @@ If you want to paint a border around the outside of a slot, you'll need to wrap
 that slot in another slot.  Then, place the border in the outside slot.
 
 ```ruby
- 
  Shoes.app do
    stack :width => 60 do
      border black, :strokewidth => 5
      stack :width => 50 do
-       para "=^.^=", :stroke => green
+       para "=.=", :stroke => green
      end
    end
  end
@@ -2967,7 +2909,7 @@ box, thus increasing the overall width of the box.  Shoes was designed with
 consistency in mind, so that if you say that a box is fifty pixels wide, it
 stays fifty pixels wide regardless of its borders or margins or anything else.
 
-Please also check out the <span style="color:blue"></span> section for other methods used on borders.
+Please also check out the <span style="color:blue">Elements</span> section for other methods used on borders.
 
 ### to_pattern() » a Shoes::Pattern ###
 
@@ -2982,7 +2924,6 @@ Buttons are known to say "OK" or "Are you sure?"  And, then, if you're sure,
 you click the button.![:margin_left => 100](/static/man-ele-button.png)
 
 ```ruby
- 
  Shoes.app do
    button "OK!"
    button "Are you sure?"
@@ -2993,7 +2934,6 @@ The buttons in the example above don't do anything when you click them. In
 order to get them to work, you've got to hook up a block to each button.
 
 ```ruby
- 
  Shoes.app do
    button "OK!" do
      append { para "Well okay then." }
@@ -3012,7 +2952,6 @@ It doesn't go much deeper than that. A button is just a clickable phrase.
 Just to be pedantic, though, here's another way to write that last example.
 
 ```ruby
- 
  Shoes.app do
    @b1 = button "OK!"
    @b1.click { para "Well okay then." }
@@ -3031,7 +2970,7 @@ can just call <span style="color:red">para</span> directly.  (This isn't the cas
 <span style="color:red">before</span> or <span style="color:red">after</span> methods.)
 
 Beside the methods below, buttons also inherit all of the methods that are
-[[Common]].
+<span style="color:blue">Common</span>.
 
 ### click() { |self| ... } » self ###
 
@@ -3052,7 +2991,6 @@ are also seen in to-do lists.![:margin_left => 100](/static/man-ele-check.png)
 Here's a sample checklist.
 
 ```ruby
- 
  Shoes.app do
    stack do
      flow { check; para "Frances Johnson" }
@@ -3069,7 +3007,6 @@ use the `checked?` method to go back and see if a box has been checked or not.
 Okay, let's add to the above example.
 
 ```ruby
- 
  Shoes.app do
    @list = ['Frances Johnson', 'Ignatius J. Reilly',
      'Winston Niles Rumfoord']
@@ -3091,7 +3028,7 @@ Okay, let's add to the above example.
 So, when the button gets pressed, each of the checks gets asked for its status,
 using the `checked?` method.
 
-Button methods are listed below, but also see the list of [[Common]] methods,
+Button methods are listed below, but also see the list of <span style="color:blue">Common</span> methods,
 which all elements respond to.
 
 ### checked?() » true or false ###
@@ -3125,19 +3062,17 @@ Without any other styling, edit boxes are sized 200 pixels by 108 pixels.  You
 can also use `:width` and `:height` styles to set specific sizes.
 
 ```ruby
- 
  Shoes.app do
    edit_box
    edit_box :width => 100, :height => 100
  end
 ```
 
-Other controls (like [and [[Check](Button]])) have only click events, but both
-[[EditLine]] and EditBox have a <span style="color:red">change</span> event.  The <span style="color:red">change</span> block is called
+Other controls (like <span style="color:blue">Button</span> and <span style="color:blue">Check</span>) have only click events, but both
+<span style="color:blue">EditLine</span> and EditBox have a <span style="color:red">change</span> event.  The <span style="color:red">change</span> block is called
 every time someone types into or deletes from the box.
 
 ```ruby
- 
  Shoes.app do
    edit_box do |e|
      @counter.text = e.text.size
@@ -3147,10 +3082,10 @@ every time someone types into or deletes from the box.
  end
 ```
 
-Notice that the example also uses the [[EditBox.text]] method inside the block.
+Notice that the example also uses the <span style="color:blue">EditBox.text</span> method inside the block.
 That method gives you a string of all the characters typed into the box.
 
-More edit box methods are listed below, but also see the list of [[Common]]
+More edit box methods are listed below, but also see the list of <span style="color:blue">Common</span>
 methods, which all elements respond to.
 
 ### change() { |self| ... } » self ###
@@ -3186,7 +3121,6 @@ to the end and want to show them when they scroll out of view, then you
 would want to use this method.
 
 ```ruby
- 
  Shoes.app height: 400, width: 640 do
   stack do
     @tb = edit_box "foo", width: 0.8
@@ -3217,7 +3151,6 @@ The unstyled edit line is 200 pixels wide and 28 pixels wide. Roughly. The
 height may vary on some platforms.
 
 ```ruby
- 
  Shoes.app do
    stack do
      edit_line
@@ -3232,8 +3165,8 @@ sized to fit the font. (And, in current versions of Shoes, the font for edit
 lines and edit boxes cannot be altered anyway.)
 
 If a block is given to an edit line, it receives <span style="color:red">change</span> events. Check out the
-[[EditBox]] page for an example of using a change block. In fact, the edit box
-has all the same methods as an edit line. Also see the list of [[Common]]
+<span style="color:blue">EditBox</span> page for an example of using a change block. In fact, the edit box
+has all the same methods as an edit line. Also see the list of <span style="color:blue">Common</span>
 methods, which all elements respond to.
 
 ### change() { |self| ... } » self ###
@@ -3256,7 +3189,6 @@ the enter key is pressed.  Think of it as a 'click' on a hidden button.
 It's separate from 'change' event: 
 
 ```ruby
- 
  Shoes.app do
   stack do
     @el = edit_line do |e|
@@ -3287,7 +3219,6 @@ web.![:margin_left => 100](/static/man-ele-image.png)
 To create an image, use the <span style="color:red">image</span> method in a slot:
 
 ```ruby
- 
  Shoes.app do
    para "Nice, nice, very nice.  Busy, busy, busy."
    image "#{DIR}/static/shoes-manual-apps.png"
@@ -3301,7 +3232,6 @@ file once.
 You can use web URLs directly as well.
 
 ```ruby
- 
  Shoes.app do
    image "http://hacketyhack.heroku.com/images/logo.png"
  end
@@ -3319,7 +3249,7 @@ may have going on.
 ### full_height() » a number ###
 
 The full pixel height of the image. Normally, you can just use the
-[[Common.height]] method to figure out how many pixels high the image is. But
+<span style="color:blue">Common.height</span> method to figure out how many pixels high the image is. But
 if you've resized the image or styled it to be larger or something, then
 <span style="color:red">height</span> will return the scaled size.
 
@@ -3328,8 +3258,8 @@ stored in the original file.
 
 ### full_width() » a number ###
 
-The full pixel width of the image. See the [[Image.full_height]] method for an
-explanation of why you might use this method rather than [[Common.width]].
+The full pixel width of the image. See the <span style="color:blue">Image.full_height</span> method for an
+explanation of why you might use this method rather than <span style="color:blue">Common.width</span>.
 
 ### path() » a string ###
 
@@ -3341,11 +3271,10 @@ Swaps the image with a different one, loaded from a file or URL.
  
 ### rotate(degrees: a number) » self ###
 
-See [[Art.rotate]] on Shapes for details. 
+See <span style="color:blue">Art.rotate</span> on Shapes for details. 
 Note that unike Shapes one could call the method also directly on Images.
 
 ```ruby
-
 Shoes.app do
     img = image "#{DIR}/static/man-ele-image.png", left: 70, top: 60
     img.rotate 45
@@ -3354,11 +3283,10 @@ end
 
 ### scale(sx: a float, sy: a float) » self ###
 
-See [[Art.scale]] on Shapes for details. 
+See <span style="color:blue">Art.scale</span> on Shapes for details. 
 Note that unike Shapes one could call the method also directly on Images.
 
 ```ruby
-
 Shoes.app do
     img = image "#{DIR}/static/man-ele-image.png", left: 70, top: 60
     img.scale 1.2, 0.8
@@ -3367,11 +3295,10 @@ end
 
 ### skew(sx: a float, sy: a float) » self ###
 
-See [[Art.skew]] on Shapes for details. 
+See <span style="color:blue">Art.skew</span> on Shapes for details. 
 Note that unike Shapes one could call the method also directly on Images.
 
 ```ruby
-
 Shoes.app do
     img = image "#{DIR}/static/man-ele-image.png", left: 70, top: 60
     img.skew 7.5, 9.5
@@ -3382,11 +3309,10 @@ end
 
 #### Image effects on image blocks ####
 
-You already know how to combine shapes into an image block (See [[Rules]] >> Image and Shape Blocks), using the same technique you can add some effects to those image blocks, namely : blur, shadow and glow, with the help of corresponding methods.
+You already know how to combine shapes into an image block (See <span style="color:blue">Rules</span> >> Image and Shape Blocks), using the same technique you can add some effects to those image blocks, namely : blur, shadow and glow, with the help of corresponding methods.
 Just wrap shapes or images into an image block and add effects inside the block 
 
 ```ruby
-
 Shoes.app :width => 400, :height => 450, :resizable => true do
     image :top => 20, :left => 20 do
         fill "#127"
@@ -3438,7 +3364,6 @@ A list box gets its options from an array.  An array (a list) of strings,
 passed into the `:items` style.
 
 ```ruby
- 
  Shoes.app do
    para "Choose a fruit:"
    list_box :items => ["Grapes", "Pears", "Apricots"]
@@ -3449,7 +3374,6 @@ So, the basic size of a list box is about 200 pixels wide and 28 pixels high.
 You can adjust this length using the `:width` style.
 
 ```ruby
- 
  Shoes.app do
    para "Choose a fruit:"
    list_box :items => ["Grapes", "Pears", "Apricots"],
@@ -3463,14 +3387,14 @@ You can adjust this length using the `:width` style.
 
 Next to the `:width` style, the example uses another useful option. The
 `:choose` option tells the list box which of the items should be highlighted
-from the beginning. (There's also a [[ListBox.choose]] method for highlighting
+from the beginning. (There's also a <span style="color:blue">ListBox.choose</span> method for highlighting
 an item after the box is created.)
 
-List boxes also have a [[ListBox.change]] event. In the last example, we've got
+List boxes also have a <span style="color:blue">ListBox.change</span> event. In the last example, we've got
 a block hooked up to the list box. Well, okay, see, that's a <span style="color:red">change</span> block.
 The block is called each time someone changes the selected item.
 
-Those are the basics. Might you also be persuaded to look at the [[Common]]
+Those are the basics. Might you also be persuaded to look at the <span style="color:blue">Common</span>
 methods page, a complete list of the methods that all elements have?
 
 There is also a much reguested option introduced in Shoes 3.3.0 that
@@ -3485,7 +3409,6 @@ Note: the font and wrap styles does nothing on OSX because OSX handles long list
 items much better than Linux or Windows. 
 
 ```ruby
-
  Shoes.app :width => 400, :height => 100 do
  stack do
    items = []
@@ -3522,7 +3445,7 @@ Returns the complete list of strings that the list box presently shows as its op
 
 Replaces the list box's options with a new list of strings.
 
-**Caution!** You can manipulate Ruby Arrays in many ways that Shoes **will not** detect
+**Caution!''' You can manipulate Ruby Arrays in many ways that Shoes '''will not** detect
 and Shoes will not display the updated array. For example '<<' will not update
 what Shoes displays. += will work because it just happens to be like 
 items = . 
@@ -3557,7 +3480,7 @@ A simple progress bar is 200 pixels wide, but you can use the `:width` style
  end
 ```
 
-Take a look at the [[Common]] methods page for a list of methods found an all
+Take a look at the <span style="color:blue">Common</span> methods page for a list of methods found an all
 elements, including progress bars.
 
 ### fraction() » a decimal number ###
@@ -3580,7 +3503,6 @@ the drop-down appears. But radio buttons are all shown, regardless of which is
 marked.
 
 ```ruby
- 
  Shoes.app do
    para "Among these films, which do you prefer?\n"
    radio; para strong("The Taste of Tea"), " by Katsuhito Ishii\n"
@@ -3595,7 +3517,6 @@ together in the same slot (along with a bunch of <span style="color:red">para</s
 If we move them each into their own slot, the example breaks.
 
 ```ruby
- 
  Shoes.app do
    stack do
      para "Among these films, which do you prefer?"
@@ -3612,7 +3533,6 @@ you just have to give them all the same group name.
 Here, let's group all these radios in the `:films` group.
 
 ```ruby
- 
  Shoes.app do
    stack do
      para "Among these films, which do you prefer?"
@@ -3632,7 +3552,7 @@ Here, let's group all these radios in the `:films` group.
  end
 ```
 
-For more methods beyond those listed below, also look into the [[Common]]
+For more methods beyond those listed below, also look into the <span style="color:blue">Common</span>
 methods page. Because you get those methods on every radio as well.
 
 ### checked?() » true or false ###
@@ -3662,7 +3582,7 @@ Enter, the radio will be toggled between its marked and unmarked states.
 A shape is a path outline usually created by drawing methods like <span style="color:red">oval</span> and
 <span style="color:red">rect</span>.![:margin_left => 100](/static/man-ele-shape.png)
 
-See the [[Common]] methods page.  Shapes respond to all of those methods.
+See the <span style="color:blue">Common</span> methods page.  Shapes respond to all of those methods.
 
 ## Slider ##
 
@@ -3671,7 +3591,6 @@ Sliders allows you to adjust a value, from 0.0 to 1.0, thanks to the handle that
 here's a sample showing you a slider in action :
 
 ```ruby
- 
 Shoes.app do
     stack margin: 10 do
         flow do
@@ -3687,7 +3606,7 @@ Shoes.app do
 end 
 ```
 
-For more methods beyond those listed below, also look into the [[Common]]
+For more methods beyond those listed below, also look into the <span style="color:blue">Common</span>
 methods page. Because you get those methods on every slider as well.
 
 ### fraction() » a decimal number ###
@@ -3700,11 +3619,11 @@ Sets the slider to a decimal number between 0.0 and 1.0.
 
 ### state » a string ###
 
-See [[Styles.state]] style for details.
+See <span style="color:blue">Styles.state</span> style for details.
 
 ### state = nil, "disabled" or "readonly" ###
 
-See [[Styles.state]] style for details.
+See <span style="color:blue">Styles.state</span> style for details.
 
 ## Svg ##
 
@@ -3738,7 +3657,7 @@ You have to specify the width and height you want. There is no default.
 Those are the size of the SVG widget on screen in pixels
 
 <span style="color:red">source</span> is a file pathname to the svg or a string containing the svg xml or
-an svghandle. Svghandle is a bit weird for the casual Shoes user (see [[Svghandle]])
+an svghandle. Svghandle is a bit weird for the casual Shoes user (see <span style="color:blue">Svghandle</span>)
 
 
 The hash has some other <span style="color:red">options</span>:
@@ -3805,19 +3724,19 @@ you have to have a '#' in the front of the string
 
 ### transform(:center or :corner) » self ###
 
-Behaves like [[Art.transform]].
+Behaves like <span style="color:blue">Art.transform</span>.
 
 ### translate(left, top) » self ###
 
-Behaves like [[Art.translate]]
+Behaves like <span style="color:blue">Art.translate</span>
 
 ### rotate(degrees: a number) » self ###
 
-Behaves like [[Art.rotate]].
+Behaves like <span style="color:blue">Art.rotate</span>.
 
 ### scale(sx: a float, sy: a float) » self ###
 
-Behaves like [[Art.scale]]
+Behaves like <span style="color:blue">Art.scale</span>
 
 ### skew(sx: a float, sy: a float) » self ###
 
@@ -3883,7 +3802,6 @@ You'll have to decide if thats a bug or feature.
 Inside the block you build the image/snapshot you want to end up with :
 
 ```ruby
-
 Shoes.app width: 400, height: 400 do 
     ext = "svg"
     ext = "pdf"
@@ -3916,15 +3834,15 @@ A paragraph containing bolded text, for example. A caption containing links and
 bolded text. (So, a <span style="color:red">caption</span> is a TextBlock type.  However, <span style="color:red">link</span> and
 <span style="color:red">strong</span> are TextClass types.)![:margin_left => 100](/static/man-ele-textblock.png)
 
-All of the various types of TextBlock are found on the <span style="color:blue">Element Creation</span> page.
+All of the various types of TextBlock are found on the [Element Creation](Element) page.
 
- * <span style="color:blue">banner</span>, a 48 pixel font.
- * <span style="color:blue">title</span>, a 34 pixel font.
- * <span style="color:blue">subtitle</span>, a 26 pixel font.
- * <span style="color:blue">tagline</span>, an 18 pixel font.
- * <span style="color:blue">caption</span>, a 14 pixel font.
- * <span style="color:blue">para</span>, a 12 pixel font.
- * <span style="color:blue">inscription</span>, a 10 pixel font.
+ * <span style="color:blue">Element.banner</span>, a 48 pixel font.
+ * <span style="color:blue">Element.title</span>, a 34 pixel font.
+ * <span style="color:blue">Element.subtitle</span>, a 26 pixel font.
+ * <span style="color:blue">Element.tagline</span>, an 18 pixel font.
+ * <span style="color:blue">Element.caption</span>, a 14 pixel font.
+ * <span style="color:blue">Element.para</span>, a 12 pixel font.
+ * <span style="color:blue">Element.inscription</span>, a 10 pixel font.
 
 ### contents() » an array of elements  ###
 
@@ -3946,7 +3864,7 @@ Replaces the text of the entire block with the characters of `a string`.
 
 ### to_s() » a string ###
 
-An alias for [[TextBlock.text]]. Returns a flattened string of all of this
+An alias for <span style="color:blue">TextBlock.text</span>. Returns a flattened string of all of this
 TextBlock's contents.
 
 ## Timers ##
@@ -3962,7 +3880,7 @@ once every few seconds or rarely.
 ### start() » self ###
 
 Both types of timers automatically start themselves, so there's no need to use
-this normally. But if you [[Timers.stop]] a timer and would like to start it up
+this normally. But if you <span style="color:blue">Timers.stop</span> a timer and would like to start it up
 again, then by all means: use this!
 
 ### stop() » self ###
@@ -4170,19 +4088,19 @@ IRB comes with embedded commands to facilitate your interaction. Type **help** i
 
 Now let's interact with Shoes objects in order to incrementally create the following GUI in a fast prototyping fashion.![:margin_left => 100](/static/shoes-irb-history-lesson.png)
 
-Type the following code in your IRB console to create a [with a specific title and size. The variable **app** will contain your newly created window but it is possible to search Shoes apps amongst [[App.Shoes.APPS](App.Shoes.app]]). 
+Type the following code in your IRB console to create a <span style="color:blue">App.Shoes.app</span> with a specific title and size. The variable **app** will contain your newly created window but it is possible to search Shoes apps amongst <span style="color:blue">App.Shoes.APPS</span>. 
 
 `app #Shoes.app(:title => "History Lesson", :height => 75, :width#> 300) {}`
 
-A stack is added to contain the text that will display the historical era. You will notice that simply calling <span style="color:blue">para]] in IRB will result in a NoMethodError exception. Para is essentially a method that belongs to a [[Slots</span>, hence **app.para** is used here.
+A stack is added to contain the text that will display the historical era. You will notice that simply calling <span style="color:blue">Element.para</span> in IRB will result in a NoMethodError exception. Para is essentially a method that belongs to a <span style="color:blue">Slots</span>, hence **app.para** is used here.
 
 `app.stack { @p = app.para }`
 
-The following creates a <span style="color:blue">flow</span> allowing buttons to align side-by-side and also the first button. The button is clickable immediately after typing the code below.
+The following creates a <span style="color:blue">Element.flow</span> allowing buttons to align side-by-side and also the first button. The button is clickable immediately after typing the code below.
 
 `f = app.flow { app.button("1800s") { @p.replace "1800s" } }`
 
-It is possible to manipulate elements in any [[Slots]]. Let's add another historical era to your your flow.
+It is possible to manipulate elements in any <span style="color:blue">Slots</span>. Let's add another historical era to your your flow.
 
 `f.button("1900s") { @p.replace "1900s" }`
 
@@ -4194,11 +4112,11 @@ Add another button to fill up some space.
 
 `f.button("2000s") { @p.replace "2000s" }`
 
-You can list your command history and see what you have done so far. It is also possible to save the command history to a file by typing **save**. For now, let's just take a look at the command **history**.
+You can list your command history and see what you have done so far. It is also possible to save the command history to a file by typing **save'''. For now, let's just take a look at the command '''history**.
 
 <span style="color:red">history</span>
 
-Finally, add a last button for entertainment value. You can press **up** or **down** to navigate through your history until you find the previous button, press **left** or **right** to edit the values, and press **enter**.
+Finally, add a last button for entertainment value. You can press **up''' or '''down''' to navigate through your history until you find the previous button, press '''left''' or '''right''' to edit the values, and press '''enter**.
 
 `f.button("2100s") { @p.replace "2100s" }`
 
@@ -4276,7 +4194,6 @@ that Shoes.APPS[] knows about.
 For example you have two windows (apps) and want append a para to all but a specific window (app)
 
 ```ruby
- 
  Shoes.app title: "Controller" do
    $other_win =  window title: "Slave" do
      stack { para "First"} 
@@ -4302,7 +4219,6 @@ If you need this, do it for every app.  Depending on your OS, theme and desktop 
 the icon may not be displayed at all.
 
 ```ruby
- 
  Shoes.app :title => "I'm Shoes" do
     button "feeling blue" do
       Shoes.APPS.each {|a| a.set_window_icon_path("#{DIR}/static/shoes-icon-blue.png") }
@@ -4322,7 +4238,6 @@ Note: the :title style setting only effects one window. This effects all ``<span
 
 If you need this, loop through all the Apps. 
 ```ruby
- 
  Shoes.app :title => "I'm Shoes" do
     button "change title" do
       Shoes.APPS.each {|a| a.set_window_title("No Shoes Here") }
