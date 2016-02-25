@@ -319,8 +319,9 @@ As you can imagine, the <span style="color:red">app</span> object changes <span 
 So the rules here are:
 
 1. '''Methods named "app" or which create new windows alter <span style="color:red">self</span> to the App
-object.'''<span style="color:blue">BR</span>(This is true for both Shoes.app and Slot.app, as well as
-<span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span>.)<span style="color:blue">BR</span>
+object.'''
+(This is true for both Shoes.app and Slot.app, as well as <span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span>.)
+
 2. '''Blocks attached to stacks, flows or any manipulation method (such as
 append) do not change self. Instead, they pop the slot on to the app's editing
 stack.'''
