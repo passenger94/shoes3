@@ -4430,7 +4430,8 @@ a pretty rich and useful set of options if you know where the Shoes program is. 
 is actually a bit tricky so we many need to create an command for it which we call
 <span style="color:red">cshoes</span> 
 
-```ruby $ cshoes -h
+```ruby 
+$ cshoes -h
 Usage: shoes [options] (app.rb or app.shy)
     -d, --debug                      Debug Shoes script
     -m, --manual                     Open the built-in manual.
