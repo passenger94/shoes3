@@ -15,7 +15,7 @@ Shoes programs are written in a language called Ruby.  When Shoes is handed
 this simple line of Ruby code, a window appears with a button inside reading
 "Click me!"  When the button is clicked, a message pops up.
 
-On Linux, here's how this might look: ![:margin_left => 100](/home/xy/NBWorkspace/shoes3/dist/static/man-shot1.png)
+On Linux, here's how this might look: ![:margin_left => 100](/static/man-shot1.png)
 
 While lots of Shoes apps are graphical games and art programs, you can also
 layout text and edit controls easily. ![:margin_left => 40](/home/xy/NBWorkspace/shoes3/dist/static/shoes-manual-apps.png)
