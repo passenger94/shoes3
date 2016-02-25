@@ -15,10 +15,10 @@ Shoes programs are written in a language called Ruby.  When Shoes is handed
 this simple line of Ruby code, a window appears with a button inside reading
 "Click me!"  When the button is clicked, a message pops up.
 
-On Linux, here's how this might look: ![:margin_left => 100](/static/man-shot1.png)
+On Linux, here's how this might look:![:margin_left => 100](/static/man-shot1.png)
 
 While lots of Shoes apps are graphical games and art programs, you can also
-layout text and edit controls easily. ![:margin_left => 40](/static/shoes-manual-apps.png)
+layout text and edit controls easily.![:margin_left => 40](/static/shoes-manual-apps.png)
 
 And, ideally, Shoes programs will run on any of the major platforms out there.
 Microsoft Windows, Apple's Mac OS X, Linux and many others.
@@ -40,7 +40,7 @@ Shoes runs on Apple Mac OS X 10.9 Mavericks.  Shoes no longer runs on PPC Macs
 or 32 bit Macs because Apple doesn't think they exist. Shoes may run on earlier 
 64 bit Intel versions of OSX like 10.8 but you should not depend on that. 
 
-![man-look-mavericks.png](/static/man-look-mavericks.png)
+!man-look-mavericks.png!
 
 Don't worry. You can make things as pretty as you care to. That particular app
 is not worth the effort to prettify. It's utilitarian, a single purpose and odds are only 
@@ -55,7 +55,7 @@ other method.
 
 Shoes runs on all versions of **Microsoft Windows XP**, **Windows Vista**,
 **Windows 7**, and anything else **Windows 2000** compatible. 
-![man-look-vista.png](/static/man-look-vista.png)
+!man-look-vista.png!
 
 Above is pictured the `simple-clock.rb` sample running on Windows Vista. This
 example is also draws ovals and lines to build the clock, which is animated to
@@ -68,7 +68,7 @@ loading fonts from a file.
 #### Linux ####
 
 Here's a screenshot of the `simple-downloader.rb` sample running on **Ubuntu
-Linux**. ![man-look-ubuntu.png](/static/man-look-ubuntu.png)
+Linux**.![man-look-ubuntu.png](/static/man-look-ubuntu.png)
 
 Notice the buttons and progress bars. These types of controls look different on
 OS X and Windows. The text and links would look the same, though.
@@ -91,14 +91,14 @@ through all the steps, though, just to be clear about it.
 
 #### Step 1: Installing Shoes ####
 
-You'll want to visit [[http://shoesrb.com/ the site of Shoes]] to download
+You'll want to visit [the site of Shoes](http://shoesrb.com/) to download
 the Shoes installer.  Usually, you'll just want one of the installers on the
-downloads page of the site. ![man-builds1.png](/static/man-builds1.png)
+downloads page of the site.![man-builds1.png](/static/man-builds1.png)
 
 Here's how to run the installer:
 
- * On **Mac OS X**, you'll have a file ending with **.tbz** in the Downloads folder.  Double-click this file and a file should appear with a **Shoes** icon. You may be asked to trust the download package. Drag the Shoes icon into the **Applications** folder. ![man-builds2.png](/static/man-builds2.png)
- * On **Windows**, you'll download a **.exe** file.  Double-click this file and follow the instructions. ![man-intro-exe.png](/static/man-intro-exe.png)
+ * On **Mac OS X**, you'll have a file ending with **.tbz** in the Downloads folder.  Double-click this file and a file should appear with a **Shoes** icon. You may be asked to trust the download package. Drag the Shoes icon into the **Applications** folder.![man-builds2.png](/static/man-builds2.png)
+ * On **Windows**, you'll download a **.exe** file.  Double-click this file and follow the instructions.![man-intro-exe.png](/static/man-intro-exe.png)
  * On **Linux**, make the **.install** file executable with **chmod +x Shoes-3.2-stuff.install** and run that, **./Shoes-3.2-stuff.install** It will ask for a the admin password to create a menu entry.
 
 #### Step 2: Start a New Text File ####
@@ -107,8 +107,8 @@ Shoes programs are just plain text files ending with a **.rb** extension.
 
 Here are a few ways to create a blank text file:
 
- * On **Mac OS X**, visit your **Applications** folder and double-click on the **TextEdit** app.  A blank editor window should come up.  Now, go to the **Format** menu and select the **Make Plain Text** option.  Okay, you're all set![ !man-editor-osx.png](/static/ !man-editor-osx.png)
- * On **Windows**, go to the Start menu.  Select **All Programs**, then **Accessories**, then **Notepad**. ![man-editor-notepad.png](/static/man-editor-notepad.png)
+ * On **Mac OS X**, visit your **Applications** folder and double-click on the **TextEdit** app.  A blank editor window should come up.  Now, go to the **Format** menu and select the **Make Plain Text** option.  Okay, you're all set!![man-editor-osx.png](/static/man-editor-osx.png)
+ * On **Windows**, go to the Start menu.  Select **All Programs**, then **Accessories**, then **Notepad**.![man-editor-notepad.png](/static/man-editor-notepad.png)
  * On **Linux**, most distros come with **gedit**.  You might try running that.  Or, if your distro is KDE-based, run **kate**.
 
 Now, in your blank window, type in the following:
@@ -122,11 +122,11 @@ Now, in your blank window, type in the following:
 
 Save to your desktop or home directory as `welcome.rb`.
 
-#### Step 3: Run It![ Go Shoes](/static/ Go Shoes) ####
+#### Step 3: Run It! Go Shoes! ####
 
 There are several ways to run a Shoes program.  The easiest is from the 'splash' screen
 We're going to use the **Open an App** link to browse to where you stored
-`welcome.rb`.  ![man-splash.png](/static/man-splash.png)
+`welcome.rb`. ![man-splash.png](/static/man-splash.png)
 
 To run your program, start Shoes:
 
@@ -134,7 +134,7 @@ To run your program, start Shoes:
  * On **Windows**, get to the Start menu.  Go into **All Programs**, then **Shoes**, then **Shoes**.  You should see the splash screen above.
  * On **Linux**, Look for the Shoes icon in the  Programming, Education, or Others Menus. Select it.  You should see the splash screen above.
 
-So, not much of a program yet.  But it's something![  You've got the knack of it, at least](/static/  You've got the knack of it, at least)
+So, not much of a program yet.  But it's something!  You've got the knack of it, at least!
 
 #### What Can You Make With Shoes? ####
 
@@ -233,7 +233,7 @@ All of the <span style="color:red">self</span>s in the above example are the App
 These instance variables will all end up inside the App object.
 
 **Whenever you create a new window, <span style="color:red">self</span> is also changed.**  So, this means
-the [[Element.window]] and [[Element.dialog]] methods, in addition to
+the <span style="color:blue">window]] and [[Element.dialog</span> methods, in addition to
 Shoes.app.
 
 ```ruby
@@ -322,7 +322,7 @@ So the rules here are:
 
 1. **Methods named "app" or which create new windows alter <span style="color:red">self</span> to the App
 object.**[[BR]](This is true for both Shoes.app and Slot.app, as well as
-[[Element.window]] and [[Element.dialog]].)[[BR]]
+<span style="color:blue">window]] and [[Element.dialog]].)[[BR</span>
 2. **Blocks attached to stacks, flows or any manipulation method (such as
 append) do not change self. Instead, they pop the slot on to the app's editing
 stack.**
@@ -436,7 +436,7 @@ will save you some memory and speed.
 #### UTF-8 Everywhere ####
 
 Ruby is now very Unicode aware.  And UTF-8 is a type of Unicode.  (See
-[[http://en.wikipedia.org/wiki/UTF-8 Wikipedia]] for a full explanation of
+[Wikipedia](http://en.wikipedia.org/wiki/UTF-8) for a full explanation of
 UTF-8.)
 
 However, UTF-8 is common on the web.  And lots of different platforms support
@@ -515,14 +515,14 @@ in [[Structuring]] or on the wiki.
 
 Shoes is all about drawing windows and the stuff inside those windows.  Let's
 focus on the window itself, for now.  The other sections [[Slots]] and
-[[Elements]] cover everything that goes inside the window.
+<span style="color:blue"></span> cover everything that goes inside the window.
 
 For here on, the manual reads more like a dictionary. Each page is mostly a
 list of methods you can use for each topic covered. The idea is to be very
 thorough and clear about everything.
 
 So, if you've hit this far in the manual and you're still hazy about getting
-started, you should probably either go back to the [[Hello! beginning]] of the
+started, you should probably either go back to the [beginning](Hello!) of the
 manual. Or you could try [[https://github.com/downloads/shoes/shoes/nks.pdf Nobody Knows
 Shoes]], the beginner's leaflet PDF.
 
@@ -530,23 +530,23 @@ Shoes]], the beginner's leaflet PDF.
 
 This section covers:
 
- * [[Built-in Built-in methods]] - general methods available anywhere in a Shoes program.
- * [[App The App window]] - methods found attached to every main Shoes window.
- * [[Styles The Styles Master List]] - a complete list of every style in Shoes.
- * [[Classes The Classes list]] - a chart showing what Shoes classes subclass what.
- * [[Colors The Colors list]] - a chart of all built-in colors and the [[Built-in.rgb]] numbers for each.
- * [[Special Specialized methods]] - oddities that don't really fit App or Built-in
+ * [Built-in methods](Built-in) - general methods available anywhere in a Shoes program.
+ * [The App window](App) - methods found attached to every main Shoes window.
+ * [The Styles Master List](Styles) - a complete list of every style in Shoes.
+ * [The Classes list](Classes) - a chart showing what Shoes classes subclass what.
+ * [The Colors list](Colors) - a chart of all built-in colors and the [[Built-in.rgb]] numbers for each.
+ * [Specialized methods](Special) - oddities that don't really fit App or Built-in
 
 If you find yourself paging around a lot and not finding something, give the
 [[Search]] page a try. It's the quickest way to get around.
 
 After this general reference, there are two other more specific sections:
 
- * [[Slots]] - covering [[Element.stack]] and [[Element.flow]], the two types of slots.
- * [[Elements]] - documentation for all the buttons, shapes, images, and so on.
+ * [- covering <span style="color:blue">stack](Slots]]) and [[Element.flow</span>, the two types of slots.
+ * <span style="color:blue"></span> - documentation for all the buttons, shapes, images, and so on.
 
-Two really important pages in there are the [[Element Element Creation]] page
-(which lists all the elements you can add) and the [[Common Common Methods]]
+Two really important pages in there are the <span style="color:blue">Element Creation</span> page
+(which lists all the elements you can add) and the [Common Methods](Common)
 page (which lists methods you'll find on any slot or element.)
 
 ## Built-in Methods ##
@@ -641,7 +641,7 @@ Pops up a window containing a short message.
 
 Please use alerts sparingly, as they are incredibly annoying!  If you are using
 alerts to show messages to help you debug your program, try checking out the
-[[Built-in.debug]] or [[Built-in.info]] methods.
+[or [[Built-in.info](Built-in.debug]]) methods.
 
 ### ask(message: a string, :title => a string or nil) » a string ###
 
@@ -749,7 +749,7 @@ by pressing `Alt-/` on any Shoes window (or `⌘-/` on OS X.)
  debug("Running Shoes on " + RUBY_PLATFORM)
 ```
 
-Also check out the [[Built-in.error]], [[Built-in.warn]] and [[Built-in.info]]
+Also check out the [[[Built-in.warn](Built-in.error]],) and [[Built-in.info]]
 methods.
 
 ### error(message: a string) » nil ###
@@ -873,7 +873,7 @@ App object is created and filled up with stacks, flows and other Shoes
 elements.
 
 The App is the window itself. Which may be closed or cleared and filled with
-new elements. ![:margin_left => 100](/static/man-app.png)
+new elements.![:margin_left => 100](/static/man-app.png)
 
 The App itself, in slot/box terminology, is a flow.  See the ''Slots'' section
 for more, but this just means that any elements placed directly at the
@@ -902,8 +902,8 @@ not resizable.  And, inside the window, two elements: a black background and a
 white circle.
 
 Once an app is created, it is added to the [[App.Shoes.APPS]] list.  If you
-want an app to spawn more windows, see the [[Element.window]] method and the
-[[Element.dialog]] method.
+want an app to spawn more windows, see the <span style="color:blue">window</span> method and the
+<span style="color:blue">dialog</span> method.
 
 ### Shoes.APPS() » An array of Shoes::App objects ###
 
@@ -1023,7 +1023,7 @@ pressed.
 ### owner() » Shoes::App ###
 
 Gets the app which launched this app.  In most cases, this will be <span style="color:red">nil</span>.  But
-if this app was launched using the [[Element.window]] method, the owner will be
+if this app was launched using the <span style="color:blue">window</span> method, the owner will be
 the app which called <span style="color:red">window</span>.
 
 ### started?() » true or false ###
@@ -1297,7 +1297,7 @@ circle within the star where the points begin to separate.
 
 For: ''list_box''.
 
-The list of selections in the list box.  See the [[Element.list_box]] method
+The list of selections in the list box.  See the <span style="color:blue">list_box</span> method
 for an example.
 
 ### :justify » true or false ###
@@ -1405,7 +1405,7 @@ For: ''banner, caption, code, del, em, ins, inscription, link, para, span,
 strong, sub, sup, subtitle, tagline, title''.
 
 Lifts or plunges the font baseline for some text.  For example, a
-[[Element.sup]] has a `:rise` of 10 pixels.  Conversely, the [[Element.sub]]
+<span style="color:blue">sup]] has a `:rise` of 10 pixels.  Conversely, the [[Element.sub</span>
 element has a `:rise` of -10 pixels.
 
 ### :scroll » true or false ###
@@ -1638,7 +1638,7 @@ placed directly under the element preceding it.
 A stack is also shaped like a box. So if a stack is given a width of 250, that
 stack is itself an element which is 250 pixels wide.
 
-To create a new stack, use the [[Element.stack]] method, which is available
+To create a new stack, use the <span style="color:blue">stack</span> method, which is available
 inside any slot.  So stacks can contain other stacks and flows.
 
 #### Flows ####
@@ -1651,7 +1651,7 @@ Like the stack, a flow is a box. So stacks and flows can safely be embedded
 and, without respect to their contents, are identical. They just treat their
 contents differently.
 
-Making a flow means calling the [[Element.flow]] method.  Flows may contain
+Making a flow means calling the <span style="color:blue">flow</span> method.  Flows may contain
 other flows and stacks.
 
 Last thing: The Shoes window itself is a flow.
@@ -1886,7 +1886,7 @@ and arcs and bends.
 ```
 
 A shape can also contain other shapes.  So, you can place an [[Art.oval]], a
-[[Art.rect]], a [[Art.line]], a [[Art.star]] or an [[Art.arrow]] (and all of
+[a [[Art.line](Art.rect]],), a [or an [[Art.arrow](Art.star]]) (and all of
 the other methods in this [[Art]] section) inside a shape, but they will not be
 part of the line.  They will be more like a group of shapes are all drawn as
 one.
@@ -2039,7 +2039,7 @@ single strikethrough in its middle.
 
 ### dialog(styles) { ... } » Shoes::App ###
 
-Opens a new app window (just like the [[Element.window]] method does,) but the
+Opens a new app window (just like the <span style="color:blue">window</span> method does,) but the
 window is given a dialog box look.
 
 ### edit_box(text) » Shoes::EditBox ###
@@ -2080,7 +2080,7 @@ block containing the code to actually ping the web site.
 A flow is an invisible box (or "slot") in which you place Shoes elements.  Both
 flows and stacks are explained in great detail on the main [[Slots]] page.
 
-Flows organize elements horizontally.  Where one would use a [[Element.stack]]
+Flows organize elements horizontally.  Where one would use a <span style="color:blue">stack</span>
 to keep things stacked vertically, a flow places its contents end-to-end across
 the page.  Once the end of the page is reached, the flow starts a new line of
 elements.
@@ -2526,7 +2526,7 @@ slot, you'll need to use `scroll_height()` to get the full size of the slot.
 
 ### hide() » self ###
 
-Hides the slot, so that it can't be seen.  See also [[Position.show]] and [[Position.toggle]].
+Hides the slot, so that it can't be seen.  See also [and [[Position.toggle](Position.show]]).
 
 ### left() » a number ###
 
@@ -2666,7 +2666,7 @@ every operating system.
 
 Once an element is created, you will often still want to change it. To move it
 or hide it or get rid of it. You'll use the commands in this section to do that
-sort of stuff. (Especially check out the [[Common Common Methods]] section for
+sort of stuff. (Especially check out the [Common Methods](Common) section for
 commands you can use on any element.)
 
 So, for example, use the <span style="color:red">image</span> method of a Slot to place a PNG on the screen.
@@ -2871,7 +2871,7 @@ empty out the setting.
 
 A background is a color, a gradient or an image that is painted across an
 entire slot.  Both backgrounds and borders are a type of Shoes::Pattern.
-![:margin_left => 100](/static/man-ele-background.png)
+!{:margin_left => 100}man-ele-background.png!
 
 Even though it's called a ''background'', you may still place this element in
 front of other elements.  If a background comes after something else painted on
@@ -2879,7 +2879,7 @@ the slot (like a <span style="color:red">rect</span> or an <span style="color:re
 element.
 
 The simplest background is just a plain color background, created with the
-[[Element.background]] method, such as this black background:
+<span style="color:blue">background</span> method, such as this black background:
 
 ```ruby
  
@@ -2912,7 +2912,7 @@ Or, to paint a fifty pixel column on the right-side of the window:
 ```
 
 Since Backgrounds are normal elements as well, see also the start of the
-[[Elements]] section for all of its other methods.
+<span style="color:blue"></span> section for all of its other methods.
 
 ### to_pattern() » a Shoes::Pattern ###
 
@@ -2924,7 +2924,7 @@ backgrounds and borders.  Reuse it as you like.
 
 A border is a color, gradient or image painted in a line around the edge of any
 slot.  Like the Background element in the last section, a Border is a kind of
-Shoes::Pattern. ![:margin_left => 100](/static/man-ele-border.png)
+Shoes::Pattern.![:margin_left => 100](/static/man-ele-border.png)
 
 The first, crucial thing to know about border is that all borders paint a line
 around the **inside** of a slot, not the outside.  So, if you have a slot
@@ -2967,7 +2967,7 @@ box, thus increasing the overall width of the box.  Shoes was designed with
 consistency in mind, so that if you say that a box is fifty pixels wide, it
 stays fifty pixels wide regardless of its borders or margins or anything else.
 
-Please also check out the [[Elements]] section for other methods used on borders.
+Please also check out the <span style="color:blue"></span> section for other methods used on borders.
 
 ### to_pattern() » a Shoes::Pattern ###
 
@@ -2979,7 +2979,7 @@ backgrounds.
 
 Buttons are, you know, push buttons.  You click them and they do something.
 Buttons are known to say "OK" or "Are you sure?"  And, then, if you're sure,
-you click the button. ![:margin_left => 100](/static/man-ele-button.png)
+you click the button.![:margin_left => 100](/static/man-ele-button.png)
 
 ```ruby
  
@@ -3047,7 +3047,7 @@ hits Enter, the button will be clicked.
 
 Check boxes are clickable square boxes than can be either checked or unchecked.
 A single checkbox usually asks a "yes" or "no" question.  Sets of checkboxes
-are also seen in to-do lists. ![:margin_left => 100](/static/man-ele-check.png)
+are also seen in to-do lists.![:margin_left => 100](/static/man-ele-check.png)
 
 Here's a sample checklist.
 
@@ -3119,7 +3119,7 @@ Enter, the check will be toggled between its checked and unchecked states.
 
 Edit boxes are wide, rectangular boxes for entering text.  On the web, they
 call these textareas.  These are multi-line edit boxes for entering longer
-descriptions.  Essays, even![ ](/static/ )[:margin_left => 100](/static/man-ele-editbox.png)
+descriptions.  Essays, even!![:margin_left => 100](/static/man-ele-editbox.png)
 
 Without any other styling, edit boxes are sized 200 pixels by 108 pixels.  You
 can also use `:width` and `:height` styles to set specific sizes.
@@ -3132,7 +3132,7 @@ can also use `:width` and `:height` styles to set specific sizes.
  end
 ```
 
-Other controls (like [[Button]] and [[Check]]) have only click events, but both
+Other controls (like [and [[Check](Button]])) have only click events, but both
 [[EditLine]] and EditBox have a <span style="color:red">change</span> event.  The <span style="color:red">change</span> block is called
 every time someone types into or deletes from the box.
 
@@ -3211,7 +3211,7 @@ This method appeared in Shoes 3.2.25 and may not be available in Shoes 4.
 
 Edit lines are a slender, little box for entering text. While the EditBox is
 multi-line, an edit line is just one. Line, that is. Horizontal, in fact.
-![:margin_left => 100](/static/man-ele-editline.png)
+!{:margin_left => 100}man-ele-editline.png!
 
 The unstyled edit line is 200 pixels wide and 28 pixels wide. Roughly. The
 height may vary on some platforms.
@@ -3282,7 +3282,7 @@ Fills the edit line with the characters of `a string`.
 
 An image is a picture in PNG, JPEG or GIF format. Shoes can resize images or
 flow them in with text. Images can be loaded from a file or directly off the
-web. ![:margin_left => 100](/static/man-ele-image.png)
+web.![:margin_left => 100](/static/man-ele-image.png)
 
 To create an image, use the <span style="color:red">image</span> method in a slot:
 
@@ -3432,7 +3432,7 @@ Note that you can control the color of the effect with the `:fill` style and the
 
 List boxes (also called "combo boxes" or "drop-down boxes" or "select boxes" in
 some places) are a list of options that drop down when you click on the box.
-![:margin_left => 100](/static/man-ele-listbox.png)
+!{:margin_left => 100}man-ele-listbox.png!
 
 A list box gets its options from an array.  An array (a list) of strings,
 passed into the `:items` style.
@@ -3539,7 +3539,7 @@ now. If nothing is selected, <span style="color:red">nil</span> will be the repl
 
 Progress bars show you how far along you are in an activity. Usually, a
 progress bar represents a percentage (from 0% to 100%.) Shoes thinks of
-progress in terms of the decimal numbers 0.0 to 1.0. ![:margin_left => 100](/static/man-ele-progress.png)
+progress in terms of the decimal numbers 0.0 to 1.0.![:margin_left => 100](/static/man-ele-progress.png)
 
 A simple progress bar is 200 pixels wide, but you can use the `:width` style
 (as with all Shoes elements) to lengthen it.
@@ -3572,7 +3572,7 @@ Sets the progress to a decimal number between 0.0 and 1.0.
 
 Radio buttons are a group of clickable circles. Click a circle and it'll be
 marked. Only one radio button can be marked at a time. (This is similar to the
-ListBox, where only one option can be selected at a time.) ![:margin_left => 100](/static/man-ele-radio.png)
+ListBox, where only one option can be selected at a time.)![:margin_left => 100](/static/man-ele-radio.png)
 
 So, how do you decide when to use radio buttons and when to use list boxes?
 Well, list boxes only show one highlighted item unless you click on the box and
@@ -3660,13 +3660,13 @@ Enter, the radio will be toggled between its marked and unmarked states.
 ## Shape ##
 
 A shape is a path outline usually created by drawing methods like <span style="color:red">oval</span> and
-<span style="color:red">rect</span>. ![:margin_left => 100](/static/man-ele-shape.png)
+<span style="color:red">rect</span>.![:margin_left => 100](/static/man-ele-shape.png)
 
 See the [[Common]] methods page.  Shapes respond to all of those methods.
 
 ## Slider ##
 
-Sliders allows you to adjust a value, from 0.0 to 1.0, thanks to the handle that can be moved with the mouse or by using the arrow keys. ![:margin_left => 100](/static/man-ele-slider.png)
+Sliders allows you to adjust a value, from 0.0 to 1.0, thanks to the handle that can be moved with the mouse or by using the arrow keys.![:margin_left => 100](/static/man-ele-slider.png)
 
 here's a sample showing you a slider in action :
 
@@ -3914,18 +3914,17 @@ you might take further control about details of your svg image for example.
 The TextBlock object represents a group of text organized as a single element.
 A paragraph containing bolded text, for example. A caption containing links and
 bolded text. (So, a <span style="color:red">caption</span> is a TextBlock type.  However, <span style="color:red">link</span> and
-<span style="color:red">strong</span> are TextClass types.) ![:margin_left => 100](/static/man-ele-textblock.png)
+<span style="color:red">strong</span> are TextClass types.)![:margin_left => 100](/static/man-ele-textblock.png)
 
-All of the various types of TextBlock are found on the [[Element Element
-Creation]] page.
+All of the various types of TextBlock are found on the <span style="color:blue">Element Creation</span> page.
 
- * [[Element.banner]], a 48 pixel font.
- * [[Element.title]], a 34 pixel font.
- * [[Element.subtitle]], a 26 pixel font.
- * [[Element.tagline]], an 18 pixel font.
- * [[Element.caption]], a 14 pixel font.
- * [[Element.para]], a 12 pixel font.
- * [[Element.inscription]], a 10 pixel font.
+ * <span style="color:blue">banner</span>, a 48 pixel font.
+ * <span style="color:blue">title</span>, a 34 pixel font.
+ * <span style="color:blue">subtitle</span>, a 26 pixel font.
+ * <span style="color:blue">tagline</span>, an 18 pixel font.
+ * <span style="color:blue">caption</span>, a 14 pixel font.
+ * <span style="color:blue">para</span>, a 12 pixel font.
+ * <span style="color:blue">inscription</span>, a 10 pixel font.
 
 ### contents() » an array of elements  ###
 
@@ -4118,20 +4117,20 @@ have fun with Shoes. Just know it exists and you can come back here when your re
 to inhale. 
 
 
-See the [[https://github.com/Shoes3/shoes3/wiki Shoes 3.2 Wiki]] and learn about Gems
+See the [Shoes 3.2 Wiki](https://github.com/Shoes3/shoes3/wiki) and learn about Gems
 and packaging and much more. Find reference links to learning Ruby and more inside Shoes
 details.  
 
- * [[https://github.com/Shoes3/shoes3 Shoes 3.2 source code.]] 
- * You should join the [[http://lists.mvmanila.com/listinfo.cgi/shoes-mvmanila.com Shoes mailing list ]]
- * Bookmark the [[http://walkabout.mvmanila.com/ Shoes 3.2 blog]] or the [[http://walkabout.mvmanila.com/feed/ RSS feed]]
- * Early [[http://shoes.mvmanila.com/public/shoes/ Downloads]] (work in progress) that may not be announced 
+ * [Shoes 3.2 source code.](https://github.com/Shoes3/shoes3) 
+ * You should join the [Shoes mailing list ](http://lists.mvmanila.com/listinfo.cgi/shoes-mvmanila.com)
+ * Bookmark the [Shoes 3.2 blog](http://walkabout.mvmanila.com/) or the [RSS feed](http://walkabout.mvmanila.com/feed/)
+ * Early [Downloads](http://shoes.mvmanila.com/public/shoes/) (work in progress) that may not be announced 
 
 Older Shoes Links for historical purposes (may be dead):
 
- * [[http://librelist.com/browser/shoes/ Old Shoes ML]]  
- * [[http://github.com/shoes/shoes/ Shoes 3.1 Source Code]] is on GitHub.
- * [[http://github.com/shoes/shoes/downloads Recent Builds]] for your platform.
+ * [Old Shoes ML](http://librelist.com/browser/shoes/)  
+ * [Shoes 3.1 Source Code](http://github.com/shoes/shoes/) is on GitHub.
+ * [Recent Builds](http://github.com/shoes/shoes/downloads) for your platform.
 
 ## Shortcuts ##
 
@@ -4140,7 +4139,7 @@ Shoes provides the following general keyboard shortcuts:
  * `Alt-/` or `⌘-/` opens **Shoes Console**.
  * `Alt-.` or `⌘-.` opens **Open File…** dialog.
  * `Alt-?` or `⌘-?` opens **Shoes Manual**.
- * `Alt-=` or `⌘-=` opens [[IRB **Shoes Interactive Ruby**]].
+ * `Alt-=` or `⌘-=` opens [**Shoes Interactive Ruby**](IRB).
  * `Alt-;` or `⌘-;` opens **Remote byebug server**.
 
 Shoes Manual provides the following keyboard shortcut:
@@ -4163,23 +4162,23 @@ Press `Alt-=` or `⌘-=` to open an Interactive Ruby console.
 
 ### Getting started ###
 
-IRB comes with embedded commands to facilitate your interaction. Type **help** in your current session to list all available commands. ![:margin_left => 60](/static/shoes-irb-help.png)
+IRB comes with embedded commands to facilitate your interaction. Type **help** in your current session to list all available commands.![:margin_left => 60](/static/shoes-irb-help.png)
 
-[[http://www.ruby-lang.org/en/documentation/quickstart/ Ruby in Twenty Minutes]] is an excellent tutorial on Ruby and the first 3 pages are focused on IRB. You can type in those examples in your Shoes Interactive Ruby console.
+[Ruby in Twenty Minutes](http://www.ruby-lang.org/en/documentation/quickstart/) is an excellent tutorial on Ruby and the first 3 pages are focused on IRB. You can type in those examples in your Shoes Interactive Ruby console.
 
 ### Interacting with Shoes ###
 
-Now let's interact with Shoes objects in order to incrementally create the following GUI in a fast prototyping fashion. ![:margin_left => 100](/static/shoes-irb-history-lesson.png)
+Now let's interact with Shoes objects in order to incrementally create the following GUI in a fast prototyping fashion.![:margin_left => 100](/static/shoes-irb-history-lesson.png)
 
-Type the following code in your IRB console to create a [[App.Shoes.app]] with a specific title and size. The variable **app** will contain your newly created window but it is possible to search Shoes apps amongst [[App.Shoes.APPS]]. 
+Type the following code in your IRB console to create a [with a specific title and size. The variable **app** will contain your newly created window but it is possible to search Shoes apps amongst [[App.Shoes.APPS](App.Shoes.app]]). 
 
 `app #Shoes.app(:title => "History Lesson", :height => 75, :width#> 300) {}`
 
-A stack is added to contain the text that will display the historical era. You will notice that simply calling [[Element.para]] in IRB will result in a NoMethodError exception. Para is essentially a method that belongs to a [[Slots]], hence **app.para** is used here.
+A stack is added to contain the text that will display the historical era. You will notice that simply calling <span style="color:blue">para]] in IRB will result in a NoMethodError exception. Para is essentially a method that belongs to a [[Slots</span>, hence **app.para** is used here.
 
 `app.stack { @p = app.para }`
 
-The following creates a [[Element.flow]] allowing buttons to align side-by-side and also the first button. The button is clickable immediately after typing the code below.
+The following creates a <span style="color:blue">flow</span> allowing buttons to align side-by-side and also the first button. The button is clickable immediately after typing the code below.
 
 `f = app.flow { app.button("1800s") { @p.replace "1800s" } }`
 
@@ -4203,7 +4202,7 @@ Finally, add a last button for entertainment value. You can press **up** or **do
 
 `f.button("2100s") { @p.replace "2100s" }`
 
-Your **Interactive Ruby** console should look like this: ![:margin_left => 60](/static/shoes-irb-sample.png)
+Your **Interactive Ruby** console should look like this:![:margin_left => 60](/static/shoes-irb-sample.png)
 
 
 
