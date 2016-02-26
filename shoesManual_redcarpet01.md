@@ -16,8 +16,7 @@ this simple line of Ruby code, a window appears with a button inside reading
 
 On Linux, here's how this might look: ![:margin_left => 100](/static/man-shot1.png)
 
-While lots of Shoes apps are graphical games and art programs, you can also
-layout text and edit controls easily. ![:margin_left => 40](/static/shoes-manual-apps.png)
+While lots of Shoes apps are graphical games and art programs, you can also layout text and edit controls easily. ![:margin_left => 40](/static/shoes-manual-apps.png)
 
 And, ideally, Shoes programs will run on any of the major platforms out there.
 Microsoft Windows, Apple's Mac OS X, Linux and many others.
@@ -56,7 +55,7 @@ Shoes runs on all versions of **Microsoft Windows XP''', '''Windows Vista**,
 **Windows 7''', and anything else '''Windows 2000** compatible. 
 ![](/static/man-look-vista.png)
 
-Above is pictured the `simple-clock.rb` sample running on Windows Vista. This
+Above is pictured the <span style="color:red">simple-clock.rb</span> sample running on Windows Vista. This
 example is also draws ovals and lines to build the clock, which is animated to
 repaint itself several times each second.
 
@@ -66,7 +65,7 @@ loading fonts from a file.
 
 #### Linux ####
 
-Here's a screenshot of the `simple-downloader.rb` sample running on '''Ubuntu
+Here's a screenshot of the <span style="color:red">simple-downloader.rb</span> sample running on '''Ubuntu
 Linux'''. ![](/static/man-look-ubuntu.png)
 
 Notice the buttons and progress bars. These types of controls look different on
@@ -119,13 +118,13 @@ Now, in your blank window, type in the following:
  end
 ```
 
-Save to your desktop or home directory as `welcome.rb`.
+Save to your desktop or home directory as <span style="color:red">welcome.rb</span>.
 
 #### Step 3: Run It! Go Shoes! ####
 
 There are several ways to run a Shoes program.  The easiest is from the 'splash' screen
 We're going to use the **Open an App** link to browse to where you stored
-`welcome.rb`.  ![](/static/man-splash.png)
+<span style="color:red">welcome.rb</span>.  ![](/static/man-splash.png)
 
 To run your program, start Shoes:
 
@@ -195,7 +194,7 @@ inside the <span style="color:red">each</span> block.
  end
 ```
 
-Here we have two blocks.  The first block is sent to `Shoes.app`.  This <span style="color:red">app</span>
+Here we have two blocks.  The first block is sent to <span style="color:red">Shoes.app</span>.  This <span style="color:red">app</span>
 block changes <span style="color:red">self</span>.
 
 The other block is the <span style="color:red">stack</span> block.  That block does NOT change self.
@@ -231,8 +230,7 @@ All of the <span style="color:red">self</span>s in the above example are the App
 
 These instance variables will all end up inside the App object.
 
-**Whenever you create a new window, <span style="color:red">self</span> is also changed.**  So, this means
-the <span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span> methods, in addition to Shoes.app.
+**Whenever you create a new window, <span style="color:red">self</span> is also changed.**  So, this means the <span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span> methods, in addition to Shoes.app.
 
 ```ruby
  Shoes.app :title => "MAIN" do
@@ -320,7 +318,8 @@ So the rules here are:
 
 1. '''Methods named "app" or which create new windows alter <span style="color:red">self</span> to the App
 object.'''
-(This is true for both Shoes.app and Slot.app, as well as <span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span>.)
+(This is true for both Shoes.app and Slot.app, as well as
+<span style="color:blue">Element.window</span> and <span style="color:blue">Element.dialog</span>.)
 
 2. '''Blocks attached to stacks, flows or any manipulation method (such as
 append) do not change self. Instead, they pop the slot on to the app's editing
@@ -497,12 +496,11 @@ can call on those <span style="color:red">main</span> bound methods but those me
 a Shoes.app binding. Confused? Join the crowd.
 
 Each Shoes.app {} or Window {} you create in your scripts gets a different <span style="color:red">binding</span>
-so the "@@my_button in one window is a different object from a @@my_button in 
+so the variable "my_button" in one window is a different object from a variable "my_button" in 
 the other window (for example). Different windows, different bindings for the same name.
 
 This isolates one window from another. Some consider this a `good thing`. It's not going
-to change however,  so some say `live with it` [Poking in Shoes](https://github.com/Shoes3/shoes3/wiki/Poking-in-Shoes.app) 
-explore how to use APP[] and app but it only a starter course
+to change however,  so some say `live with it` [Poking in Shoes](https://github.com/Shoes3/shoes3/wiki/Poking-in-Shoes.app) explore how to use APP[] and app but it only a starter course
 in a very long menu.
 
 For complex, multi-window Shoes apps that need to share some things and not
@@ -522,8 +520,7 @@ thorough and clear about everything.
 
 So, if you've hit this far in the manual and you're still hazy about getting
 started, you should probably either go back to the [beginning](Hello!) of the
-manual. Or you could try [Nobody Knows Shoes](https://github.com/downloads/shoes/shoes/nks.pdf), 
-the beginner's leaflet PDF.
+manual. Or you could try [Nobody Knows Shoes](https://github.com/downloads/shoes/shoes/nks.pdf), the beginner's leaflet PDF.
 
 #### Finding Your Way ####
 
@@ -729,7 +726,7 @@ See <span style="color:blue">Built-in.alert</span> method for similar examples.
 ### debug(message: a string) » nil ###
 
 Sends a debug message to the Shoes console.  You can bring up the Shoes console
-by pressing `Alt-/` on any Shoes window (or `⌘-/` on OS X.)
+by pressing <span style="color:red">Alt-/</span> on any Shoes window (or <span style="color:red">⌘-/</span> on OS X.)
 
 ```ruby
  debug("Running Shoes on " + RUBY_PLATFORM)
@@ -752,7 +749,7 @@ method and they'll be formatted appropriately.
 Stops your program. Call this anytime you want to suddenly call it quits.
 
 **PLEASE NOTE:** If you need to use Ruby's own <span style="color:red">exit</span> method (like in a
-forked Ruby process,) call `Kernel.exit`.
+forked Ruby process,) call <span style="color:red">Kernel.exit</span>.
 
 ### font(message: a string) » an array of font family names ###
 
@@ -777,7 +774,7 @@ the file.  Otherwise, <span style="color:red">nil</span> is returned if no fonts
 
 Also of interest: the `Shoes::FONTS` constant is a complete list of fonts
 available to you on this platform.  You can check for a certain font by using
-`include?`.
+<span style="color:red">include?</span>.
 
 ```ruby
  if Shoes::FONTS.include? "Helvetica"
@@ -839,7 +836,7 @@ Or, use a decimal number from 0.0 to 1.0.
  darkgreen = rgb(0, 0.4, 0)
 ```
 
-This method may also be called as `Shoes.rgb`.
+This method may also be called as <span style="color:red">Shoes.rgb</span>.
 
 ### warn(message: a string) » nil ###
 
@@ -848,7 +845,7 @@ Logs a warning for the user.  A warning is not a catastrophic error (see
 changing in the future or that certain parts of the program aren't reliable
 yet.
 
-To view warnings and errors, open the Shoes console with `Alt-/` (or `⌘-/` on
+To view warnings and errors, open the Shoes console with <span style="color:red">Alt-/</span> (or <span style="color:red">⌘-/</span> on
 OS X.)
 
 ## The App Object ##
@@ -935,7 +932,7 @@ If you attach a block to a download, it'll get called as the <span style="color:
 ```
 
 And, if we wanted to use the downloaded data, we'd get it using
-`goog.response.body`.  This example is truly the simplest form of <span style="color:red">download</span>:
+<span style="color:red">goog.response.body</span>.  This example is truly the simplest form of <span style="color:red">download</span>:
 pulling some web data down into memory and handling it once it's done.
 
 Another simple use of <span style="color:red">download</span> is to save some web data to a file, using the
@@ -956,7 +953,7 @@ Another simple use of <span style="color:red">download</span> is to save some we
 ```
 
 In this case, you can still get the headers for the downloaded file, but
-`response.body` will be <span style="color:red">nil</span>, since the data wasn't saved to memory.  You will
+<span style="color:red">response.body</span> will be <span style="color:red">nil</span>, since the data wasn't saved to memory.  You will
 need to open the file to get the downloaded goods.
 
 If you need to send certain headers or actions to the web server, you can use
@@ -2283,18 +2280,18 @@ block is sent a <span style="color:red">key</span> which is a string representin
 letter or number) on the key.  For special keys and key combos, a Ruby symbol
 is sent, rather than a string.
 
-So, for example, if `Shift-a` is pressed, the block will get the string `"A"`.
+So, for example, if <span style="color:red">Shift-a</span> is pressed, the block will get the string `"A"`.
 
 However, if the F1 key is pressed, the `:f1` symbol is received.  For
-`Shift-F1`, the symbol would be `:shift_f1`.
+<span style="color:red">Shift-F1</span>, the symbol would be `:shift_f1`.
 
 The modifier keys are <span style="color:red">control</span>, <span style="color:red">shift</span> and <span style="color:red">alt</span>.  They appear in that order.
-If `Shift-Control-Alt-PgUp` is pressed, the symbol will be
+If <span style="color:red">Shift-Control-Alt-PgUp</span> is pressed, the symbol will be
 `:control_shift_alt_page_up`.
 
 One thing about the shift key.  You won't see the shift key on most keys.  On
-US keyboards, `Shift-7` is an ampersand.  So you'll get the string `"&"` rather
-than `:shift_5`.  And, if you press `Shift-Alt-7` on such a keyboard, you'll
+US keyboards, <span style="color:red">Shift-7</span> is an ampersand.  So you'll get the string `"&"` rather
+than `:shift_5`.  And, if you press <span style="color:red">Shift-Alt-7</span> on such a keyboard, you'll
 get the symbol: `:alt_&`.  You'll only see the shift modifier on the special
 keys listed a few paragraphs down.
 
@@ -3003,7 +3000,7 @@ Here's a sample checklist.
 
 You basically have two ways to use a check.  You can attach a block to the
 check and it'll get called when the check gets clicked.  And/or you can just
-use the `checked?` method to go back and see if a box has been checked or not.
+use the <span style="color:red">checked?</span> method to go back and see if a box has been checked or not.
 
 Okay, let's add to the above example.
 
@@ -3027,7 +3024,7 @@ Okay, let's add to the above example.
 ```
 
 So, when the button gets pressed, each of the checks gets asked for its status,
-using the `checked?` method.
+using the <span style="color:red">checked?</span> method.
 
 Button methods are listed below, but also see the list of <span style="color:blue">Common</span> methods,
 which all elements respond to.
@@ -3910,7 +3907,6 @@ for yourself you also need to install VLC, just like anybody else.
 
 Shoes looks for VLC in /usr/lib (for linux), /Applications/VLC.app (osx) and
 C:\"Program Files (x86)"\VideoLAN\VLC which is where VLC installs it's self.
-If you don't install VLC in the correct place, then Shoes won't find it.
 
 You also have to draw your own buttons or links and hook them up so they 
 call the methods to pause, play, fast forward and so on. Take a look at the
@@ -3918,7 +3914,8 @@ expert-video-player in Furthermore->Samples which is tour-de-force of how to cre
 custom widget and wire up. We might get an easier method built in the future but 
 for now, you need to do it the hard way.
 
-To add a video you need to 
+To add a video you need to
+
 ```ruby
 require 'shoes/videoffi'
 Vlc.load_lib 
@@ -3928,25 +3925,58 @@ Vlc.load_lib
 
 This checks that VLC is installed and makes it's api's available to Shoes. 
 
-There is an argument (not shown) that is the path to the VLC location which will almost
-certainly fail for you unless you are "much, much smarter than the average bear" . So, don't do that.
+If Shoes can't find VLC on it's own, and you know you have installed it, you can help Shoes : just go to the Cobbler (you'll find him by clicking on **Maintain Shoes''' button at the start screen) once in Cobbler's atelier, click on '''VLC setup button** ...). 
 
-### video {styles} » video-widget ###
+### video(path/url: a string, optional styles) » video-widget ###
 
-This creates the on screen widget with the styles args like width and height some unique settings.
-This is the widget you control with the methods below.
+This creates the on screen widget with the styles args like width and height and some unique settings. This is the widget you control with the methods below.
+
+"path/url" is the path to a file or an address of a stream as a String (everything Vlc can read on your hard drive or over the internet, you're pretty much spoilt for choice !), this parameter is mandatory, note that you can pass "" i.e. an empty string, if you want to start with an empty media player and later load a media with path= method (see below).
 
 There are some styles that are unique to Video widgets:
 
-autoplay: true or false
+ * `:autoplay` => true or false
 
-volume: integer 0..100
+Start playing given media immediately and every time you load a new media. You can change this later by means of autoplay= method (see below). Defaults to <span style="color:red">false</span>.
+
+ * `:volume` => integer 0..100
+
+Defaults to <span style="color:red">85</span>.
+
+ * `:bg_color` => a Shoes color
+
+Sets the background of the video area. Defaults to <span style="color:red">black</span>, rgb(0,0,0).
+
+ * `:vlc_options` => an array of String
+
+Advanced users ! Vlc player options, if you really need to customize Vlc - you're on your own here, lookup for **libvlc_new** arguments -.
+
+
+### autoplay() » true or false ###
+
+Checks if Vlc is in autoplay mode.
+
+### autoplay = true or false ###
+ 
+Sets Vlc autoplay mode.
+
+### have_audio_track() » true or nil ###
+
+Checks if media have an audio track.
+
+### have_video_track() » true or nil ###
+
+Checks if media have a video track.
 
 ### hide() » self ###
 
 Hides the video. If already playing, the video will continue to play. This just
 turns off display of the video. One possible use of this method is to collapse
 the video area when it is playing an audio file, such as an MP3.
+
+### loaded() » true or nil ###
+
+If you want to check whether Vlc has loaded or not your media.
 
 ### length() » a number ###
 
@@ -3958,9 +3988,21 @@ yet loaded.
 Moves the video to specific coordinates, the (left, top) being the upper left
 hand corner of the video.
 
+### next_media » true or false ###
+
+When a playlist has been loaded, changes the actual media to the next item in the playlist. Returns true upon success, false if there isn't a next item.
+
+### path() » a String ###
+
+Returns the path or url of the media actually loaded, empty string if no media have been yet loaded.
+
+### path= a String ###
+
+Loads a new media into your player, could be a file : video, audio, playlist, image or a stream on the web: from popular video sites, radio, etc... Whatever your Vlc could digest.
+
 ### pause() » self ###
 
-Pauses the video, if it is playing.
+Pauses the video, if it is playing. To resume playing, call that method again - not the play() method, it will restart from the beginning -.
 
 ### playing?() » true of false ###
 
@@ -3982,6 +4024,10 @@ halfway point of the video.
 
 Sets the position of the video using a Float value. To move the video to its
 25% position: `@video.position = 0.25`.
+
+### previous_media » true or false ###
+
+When a playlist has been loaded, changes the actual media to the previous item in the playlist. Returns true upon success, false if there isn't a previous item.
 
 ### remove() » self ###
 
@@ -4008,6 +4054,15 @@ Set the position of the video to a time in milliseconds.
 
 Toggles the visibility of the video. If the video can be seen, then <span style="color:red">hide</span> is
 called. Otherwise, <span style="color:red">show</span> is called.
+
+### video_track_height() » an number ###
+
+If loaded media has a video track, fetches it's real height. This is not necessarily the height of the widget, because most of the times you gave some dimensions to your widget and Vlc will accomodate for them.
+
+### video_track_width() » an number ###
+
+If loaded media has a video track, fetches it's real width. See video_track_height() above.
+
 
 #Furthermore#
  Run the samples from here, or read more Shoes information on the Internet. 
@@ -4055,29 +4110,29 @@ Older Shoes Links for historical purposes (may be dead):
 
 Shoes provides the following general keyboard shortcuts:
 
- * `Alt-/` or `⌘-/` opens **Shoes Console**.
- * `Alt-.` or `⌘-.` opens **Open File…** dialog.
- * `Alt-?` or `⌘-?` opens **Shoes Manual**.
- * `Alt-=` or `⌘-=` opens [**Shoes Interactive Ruby**](IRB).
- * `Alt-;` or `⌘-;` opens **Remote byebug server**.
+ * <span style="color:red">Alt-/</span> or <span style="color:red">⌘-/</span> opens **Shoes Console**.
+ * <span style="color:red">Alt-.</span> or <span style="color:red">⌘-.</span> opens **Open File…** dialog.
+ * <span style="color:red">Alt-?</span> or <span style="color:red">⌘-?</span> opens **Shoes Manual**.
+ * <span style="color:red">Alt-=</span> or <span style="color:red">⌘-=</span> opens [**Shoes Interactive Ruby**](IRB).
+ * <span style="color:red">Alt-;</span> or <span style="color:red">⌘-;</span> opens **Remote byebug server**.
 
 Shoes Manual provides the following keyboard shortcut:
 
- * `Alt-f` or `⌘-f` opens **Search** section.
- * `Alt-left` or `⌘-left` browses back.
- * `Alt-right` or `⌘-right` browses forward.
+ * <span style="color:red">Alt-f</span> or <span style="color:red">⌘-f</span> opens **Search** section.
+ * <span style="color:red">Alt-left</span> or <span style="color:red">⌘-left</span> browses back.
+ * <span style="color:red">Alt-right</span> or <span style="color:red">⌘-right</span> browses forward.
  * <span style="color:red">PgUp</span> and <span style="color:red">PgDn</span> scrolls up and down one page.
  * <span style="color:red">Up</span> and <span style="color:red">Down</span> scrolls up and down one line.
 
 Shoes Console provides the following keyboard shortcut:
 
- * `Alt-t` or `⌘-t` disables autoscroll.
+ * <span style="color:red">Alt-t</span> or <span style="color:red">⌘-t</span> disables autoscroll.
 
 ## IRB Interactive Ruby ##
 
 Shoes provides an **Interactive Ruby** (IRB) console for quick expression evaluations, fast prototyping and manipulate Shoes objects.
 
-Press `Alt-=` or `⌘-=` to open an Interactive Ruby console.
+Press <span style="color:red">Alt-=</span> or <span style="color:red">⌘-=</span> to open an Interactive Ruby console.
 
 ### Getting started ###
 
@@ -4107,7 +4162,7 @@ It is possible to manipulate elements in any <span style="color:blue">Slots</spa
 
 Shall we verify that those buttons are indeed part of the flow **f**?
 
-`f.contents`
+<span style="color:red">f.contents</span>
 
 Add another button to fill up some space.
 
@@ -4237,14 +4292,15 @@ it does not do is change the title of other existing windows. To be
 
 Note: the :title style setting only effects one window. This effects all ``<span style="color:red">NEW</span>`` windows. 
 
-If you need this, loop through all the Apps. 
+If you need this, loop through all the Apps.
+
 ```ruby
- Shoes.app :title => "I'm Shoes" do
-    button "change title" do
-      Shoes.APPS.each {|a| a.set_window_title("No Shoes Here") }
-      confirm "did the title change to No Shoes Here"
-    end
- end
+Shoes.app :title => "I'm Shoes" do
+   button "change title" do
+     Shoes.APPS.each {|a| a.set_window_title("No Shoes Here") }
+     confirm "did the title change to No Shoes Here"
+   end
+end
 ```
 
 Notice how the title is very sticky. 
@@ -4454,4 +4510,5 @@ There's no <span style="color:red">one</span> proper way that I know of and prob
 There is a limit on how far you are willing to push Shoes when you start down this path.
 
 Remember to have fun!
+
 
