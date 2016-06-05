@@ -49,7 +49,11 @@ Shoes.app title: "Testing Shoes video" do
                                cont_args: {width: 35, height: 20},
                                widget_args: ['indian.m4a', width: 350, height: 20]
                              },                 
-         
+        VideoVlcTestToggle => { desc: "toggle video widget",
+                               cont_args: {width: 35, height: 20},
+                               widget_args: ['AnemicCinema1926marcelDuchampCut.mp4', hidden: false, 
+                                            width: 350, height: 20]
+                             },
     }
     
     

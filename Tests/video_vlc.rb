@@ -239,4 +239,14 @@ class VideoVlcTestAudio  < VideoVlcTestBase
     end
 end
 
-
+class VideoVlcTestToggle < VideoVlcTestBase
+    
+    def test_toggleWidget
+        assert_false @@app.vid.style[:hidden]
+        
+        ret = @@app.vid.toggle
+        assert_true ret # it's hidden now
+        ret = @@app.vid.toggle
+        assert_false ret # it's shown now
+    end
+end
