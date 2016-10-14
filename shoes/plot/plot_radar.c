@@ -15,24 +15,24 @@
 VALUE shoes_plot_radar_color(int);
 
 // called when a data series is added to the chart.
-// Trying very hard to not pollute Shoes C name space and h files with plot stuff
+// USES the chart_series class. Beware.
 void shoes_plot_radar_init(shoes_plot *plot) {
   radar_chart_t *rdrchart = malloc(sizeof(radar_chart_t));
   plot->c_things = (void *)rdrchart;
-  //VALUE rbsz = rb_ary_entry(plot->sizes, 0);
-  //int numobs = NUM2INT(rbsz);
-  int numobs = RARRAY_LEN(rb_ary_entry(plot->values, 0));
+  VALUE cs = rb_ary_entry(plot->series, 0);
+  shoes_chart_series *ser;
+  Data_Get_Struct(cs, shoes_chart_series, ser);
+  int numobs = RARRAY_LEN(ser->values);
   rdrchart->count = numobs;
   radar_slice_t *slices = (radar_slice_t *)malloc(sizeof(radar_slice_t) * numobs);
   rdrchart->slices = slices;
   int i;
   rdrchart->maxv = 0.0; 
   rdrchart->minv = 100000000.0; // TODO: use a max double constant
-  VALUE rbvals = rb_ary_entry(plot->values, 0);
   // sum the values
   for (i = 0; i <numobs; i++) {
     radar_slice_t *slice = &slices[i];
-    VALUE rbv = rb_ary_entry(rbvals, i);
+    VALUE rbv = rb_ary_entry(ser->values, i);
     double v = NUM2DBL(rbv);
     slice->value = v;
     if (v < rdrchart->minv) rdrchart->minv = v;
@@ -73,8 +73,9 @@ void shoes_plot_draw_radar_chart(cairo_t *cr, shoes_plot *plot)
   right = plot->graph_w; bottom = plot->graph_h; 
   width = right - left;
   height = bottom - top; 
-  /*
+  
   radar_chart_t *chart = (radar_chart_t *) plot->c_things;
+   
 
   chart->centerx = left + roundl(width * 0.5);
   chart->centery = top + roundl(height * 0.5);
@@ -82,11 +83,48 @@ void shoes_plot_draw_radar_chart(cairo_t *cr, shoes_plot *plot)
   chart->top = top; chart->left = left; chart->bottom = bottom;
   chart->right = right; chart->width = width; chart->height = height;
   printf("radius %4.2f\n", chart->radius);
-  */
   
+  int j;
+  cairo_save(cr);
   for (i = 0; i < plot->seriescnt; i++) {
-
+    VALUE cs = rb_ary_entry(plot->series, i);
+    shoes_chart_series *ser;
+    Data_Get_Struct(cs, shoes_chart_series, ser);
+    //VALUE rbvary = rb_ary_entry(plot->values, i);
+    //int count = RARRAY_LEN(rbvary);
+    int count = RARRAY_LEN(ser->values);
+    //VALUE rbminv = rb_ary_entry(plot->minvs, i);
+    //double minv = NUM2DBL(rbminv);
+    double minv = NUM2DBL(ser->minv);
+    //VALUE rbmaxv = rb_ary_entry(plot->maxvs, i);
+    //double maxv = NUM2DBL(rbmaxv);
+    double maxv = NUM2DBL(ser->maxv);
+    int first = TRUE;
+    cairo_new_path(cr);
+    for (j = 0; j < count; j++) {
+      int k = j + 1;
+      //VALUE rbv = rb_ary_entry(rbvary, j);
+      VALUE rbv = rb_ary_entry(ser->values, j);
+      double value =  NUM2DBL(rbv);
+      double offset1 = k * 2 * SHOES_PI / k;
+      double offset = SHOES_PI / 2 - offset1;
+      //double rad = (height / 2) * (1 - value);
+      double rad = (height / 2) / (value);
+      int x = chart->centerx - cos(offset) * rad;
+      int y = chart->centery - sin(offset) * rad;
+      if (first) {
+        printf("move to x %i, y: %i v: %4.2f offset: %4.2f rad: %4.2f\n", x, y, value, offset, rad);
+        cairo_move_to(cr, x, y);
+        first = FALSE;
+        continue;
+      } else {
+        printf("line to x %i, y: %i v: %4.2f offset: %4.2f rad: %4.2f\n", x, y, value, offset, rad);
+        cairo_line_to(cr, x, y);
+      }
+    }
+    cairo_stroke(cr);
   }
+  cairo_restore(cr);
   shoes_plot_set_cairo_default(cr, plot);
 }
 ;
